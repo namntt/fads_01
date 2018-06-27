@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context" 
-	xmlns:tx="http://www.springframework.org/schema/tx" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	    http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -32,6 +31,13 @@
 		<property name="mappingResources">
 			<list>
 				<value>com/framgia/model/hbm/User.hbm.xml</value>
+				<value>com/framgia/model/hbm/Category.hbm.xml</value>
+				<value>com/framgia/model/hbm/Comment.hbm.xml</value>
+				<value>com/framgia/model/hbm/News.hbm.xml</value>
+				<value>com/framgia/model/hbm/NewsImage.hbm.xml</value>
+				<value>com/framgia/model/hbm/Role.hbm.xml</value>
+				<value>com/framgia/model/hbm/UserFollowNews.hbm.xml</value>
+				<value>com/framgia/model/hbm/UserRole.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
