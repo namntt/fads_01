@@ -6,6 +6,13 @@
 	http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
-
+	
+	<bean id="userService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="com.framgia.service.impl.UserServiceImpl">
+				<property name="userDAO" ref="userDAO" />
+			</bean>
+		</property>
+	</bean>
 	
 </beans>
