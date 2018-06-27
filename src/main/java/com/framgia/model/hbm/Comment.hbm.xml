@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package ="com.framgia.model">
+    <class name="Comment" table="comment">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="News" fetch="select" name="news">
+            <column name="news_id"/>
+        </many-to-one>
+        <many-to-one class="User" fetch="select" name="userAccount">
+            <column name="user_id"/>
+        </many-to-one>
+        <property name="createdDate" type="timestamp">
+            <column length="19" name="created_date"/>
+        </property>
+        <property name="description" type="string">
+            <column length="200" name="description"/>
+        </property>
+        <property name="parentId" type="java.lang.Integer">
+            <column name="parent_id"/>
+        </property>
+    </class>
+</hibernate-mapping>
