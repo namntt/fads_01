@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package ="com.framgia.model">
+    <class name="Role" table="role">
+        <id name="id" type="int">
+            <column name="id"/>
+           <generator class="identity"/>
+        </id>
+        <property name="name" type="string">
+            <column length="45" name="name"/>
+        </property>
+        <list name="userRoles" fetch="select" inverse="true">
+			<key column="role_id" />
+			<index column="id" />
+			<one-to-many class="UserRole" />
+		</list>
+    </class>
+</hibernate-mapping>
