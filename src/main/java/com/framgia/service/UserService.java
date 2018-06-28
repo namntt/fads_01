@@ -6,4 +6,6 @@ import com.framgia.search.SearchUser;
 
 public interface UserService {
 	List<User> getUser(SearchUser searchUser);
+	
+	void saveUser(User user);
 }

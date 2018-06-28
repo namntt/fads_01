@@ -1,5 +1,6 @@
 package com.framgia.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import com.framgia.dao.UserDAO;
@@ -14,7 +15,7 @@ public class UserServiceImpl implements UserService{
 	public List<User> getUser(SearchUser searchUser) {
 		return getUserDAO().getUser(searchUser);
 	}
-
+	
 	public UserDAO getUserDAO() {
 		return userDAO;
 	}
@@ -22,7 +23,11 @@ public class UserServiceImpl implements UserService{
 	public void setUserDAO(UserDAO userDAO) {
 		this.userDAO = userDAO;
 	}
-	
-	
+
+	@Override
+	public void saveUser(User user) {
+		user.setCreatedDate(new Date());
+		getUserDAO().saveUser(user);
+	}
 	
 }

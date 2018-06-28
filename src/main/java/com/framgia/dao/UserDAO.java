@@ -8,4 +8,6 @@ import com.framgia.search.SearchUser;
 public interface UserDAO {
 	List<User> getUser(SearchUser searchUser);
 	
+	void saveUser(User user);
+	
 }

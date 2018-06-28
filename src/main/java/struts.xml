@@ -6,6 +6,7 @@
 <struts>
 	<!-- I18n config -->
 	<constant name="struts.custom.i18n.resources" value="global" />
+	<constant name="struts.ui.theme" value="simple" />
 	<!-- Define default-web package: struts-default -->
 	<package name="default-web" namespace="/" extends="struts-default">
 		<result-types>
@@ -14,7 +15,16 @@
 		</result-types>
 
 		<action name="list" class="userAction" method="listUser">
-			<result name="success">index</result>
+			<result name="success">list</result>
+		</action>
+		
+		<action name="newUser" class="userAction" method="newUser">
+			<result name="success">addUser</result>
+		</action>
+		
+		<action name="saveOrUpdateUser" class="userAction" method="saveOrUpdateUser">
+			<result name="success" type="redirect">/list</result>
+			<result name="input">addUser</result>
 		</action>
 	</package>
 </struts>

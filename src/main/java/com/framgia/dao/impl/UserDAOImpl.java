@@ -40,4 +40,10 @@ public class UserDAOImpl implements UserDAO{
 		return typedQuery.getResultList();
 	}
 
+	@Override
+	public void saveUser(User user) {
+		
+		sessionFactory.getCurrentSession().persist(user);
+	}
+	
 }
