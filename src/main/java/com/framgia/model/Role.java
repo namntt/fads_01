@@ -37,6 +37,4 @@ public class Role implements Serializable {
 		this.userRoles = userRoles;
 	}
 
-	
-
 }

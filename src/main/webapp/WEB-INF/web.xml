@@ -23,8 +23,9 @@
 	</context-param>
 	<context-param>
 		<param-name>org.apache.tiles.definition.DefinitionsFactory.DEFINITIONS_CONFIG</param-name>
-		<param-value></param-value>
+		<param-value>/WEB-INF/configs/tiles-config.xml</param-value>
 	</context-param>
+
 	<!-- Define Tiles 3 Listener -->
 	<listener>
 		<listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener</listener-class>

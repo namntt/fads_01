@@ -22,6 +22,7 @@
 		<log4j.version>1.2.17</log4j.version>
 		<junit.version>3.8.1</junit.version>
 		<jstl.version>1.2.4</jstl.version>
+		<dojo.version>2.3.34</dojo.version>
 		<commons-logging>1.2</commons-logging>
 	</properties>
 
@@ -138,6 +139,13 @@
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
 			<version>${commons-logging}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.struts/struts2-dojo-plugin -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-dojo-plugin</artifactId>
+			<version>${dojo.version}</version>
 		</dependency>
 
 		<dependency>
