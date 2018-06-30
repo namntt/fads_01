@@ -24,4 +24,15 @@ public class UserServiceImpl implements UserService{
 		this.userDAO = userDAO;
 	}
 
+	@Override
+	public User findById(Integer id) {
+		try{
+			User user=getUserDAO().findBy("id", id);
+			return user;
+		}catch(Exception e){
+			
+		}
+		return null;
+	}
+	
 }
