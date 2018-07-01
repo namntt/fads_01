@@ -6,6 +6,7 @@
 <struts>
 	<!-- I18n config -->
 	<constant name="struts.custom.i18n.resources" value="global" />
+	<constant name="struts.convention.result.path" value="/"></constant>
 	<!-- Define default-web package: struts-default -->
 	<package name="default-web" namespace="/" extends="struts-default">
 		<result-types>
@@ -16,5 +17,36 @@
 		<action name="index" class="userAction" method="index">
 			<result name="success">index</result>
 		</action>
+		
+		<action name="details" class="userAction" method="detail">
+			<result name="success">details</result>
+		</action>
+	</package>
+	<package name="user" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor name="authentication" class="com.framgia.interceptors.AuthenticationInterceptor"></interceptor>
+			<interceptor-stack name="authStack">
+				<interceptor-ref name="authentication"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="authStack"></default-interceptor-ref>
+
+		<action name="home">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result>/WEB-INF/views/login.jsp</result>
+		</action>
+
+		<action name="login" class="loginAction">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success">/WEB-INF/views/welcome.jsp</result>
+			<result name="input">/WEB-INF/views/login.jsp</result>
+		</action>
+		<action name="welcome"
+			class="com.framgia.action.WelcomeAction">
+			<result name="success">/WEB-INF/views/welcome.jsp</result>
+		</action>
+
 	</package>
 </struts>
