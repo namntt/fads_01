@@ -27,8 +27,12 @@
 	<body>	
 		<tiles:insertAttribute name="header" />
 		<div class="container-fluid main-container">
+		<div class="col-md-3">
 			<tiles:insertAttribute name="menu" />	
+			</div>
+			<div class="col-md-9">
 			<tiles:insertAttribute name="body" />
+			</div>
 		</div>		
 		<tiles:insertAttribute name="footer" />	
 	</body>

@@ -7,4 +7,6 @@ import com.framgia.search.SearchUser;
 
 public interface UserService {
 	List<User> findAll();
+	
+	User findById(Integer id);
 }

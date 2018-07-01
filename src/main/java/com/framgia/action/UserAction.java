@@ -2,8 +2,6 @@ package com.framgia.action;
 
 import java.util.List;
 import com.framgia.model.User;
-import com.framgia.search.Search;
-import com.framgia.search.SearchUser;
 import com.framgia.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -13,9 +11,15 @@ public class UserAction extends ActionSupport{
 	private List<User> users;
 	private User user;
 	private String searchKeyword;
+	private Integer id;
 	
 	public String index() {
 		users = userService.findAll();
+		return SUCCESS;
+	}
+	
+	public String detail(){
+		user=userService.findById(id);
 		return SUCCESS;
 	}
 	
@@ -45,6 +49,14 @@ public class UserAction extends ActionSupport{
 	
 	public void setSearchKeyword(String searchKeyword) {
 		this.searchKeyword = searchKeyword;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 }

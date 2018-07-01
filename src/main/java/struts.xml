@@ -16,5 +16,9 @@
 		<action name="index" class="userAction" method="index">
 			<result name="success">index</result>
 		</action>
+		
+		<action name="details" class="userAction" method="detail">
+			<result name="success">details</result>
+		</action>
 	</package>
 </struts>

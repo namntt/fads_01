@@ -21,7 +21,7 @@
 	<definition name="index" extends="base.definition">
 		<put-attribute name="title" value="List" />
 		<put-attribute name="screenname" value="List User" />
-		<put-attribute name="body" value="/admin/userviews/listUsers.jsp" />
+		<put-attribute name="body" value="/admin/users/listUsers.jsp" />
 		<put-list-attribute name="cssDefault">
 			<add-attribute value="/assets/css/bootstrap.min.css" />
 		</put-list-attribute>
@@ -40,7 +40,7 @@
 	<definition name="details" extends="base.definition">
 		<put-attribute name="title" value="List" />
 		<put-attribute name="screenname" value="List User" />
-		<put-attribute name="body" value="/admin/userviews/details.jsp" />
+		<put-attribute name="body" value="/admin/users/details.jsp" />
 		<put-list-attribute name="cssDefault">
 			<add-attribute value="/assets/css/bootstrap.min.css" />
 		</put-list-attribute>
