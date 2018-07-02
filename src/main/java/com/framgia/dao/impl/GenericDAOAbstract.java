@@ -8,7 +8,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-import org.apache.commons.lang.StringUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -56,6 +55,11 @@ public abstract class GenericDAOAbstract<T, PK extends Serializable> {
 		Root<T> root = cr.from(typeClass);
 		cr.where(builder.equal(root.get(atribute), key));
 		return getSession().createQuery(cr.select(root)).getSingleResult();
+	}
+	
+	public T saveOrUpdate(T entity){
+		getSession().saveOrUpdate(entity);
+		return entity;
 	}
 
 }

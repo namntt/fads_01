@@ -8,5 +8,7 @@ public interface BaseDAO<T,PK> {
 	public List<T> findAll();
 	
 	public T findBy(String atribute, Serializable key);
+	
+	public T saveOrUpdate(T entity);
 
 }

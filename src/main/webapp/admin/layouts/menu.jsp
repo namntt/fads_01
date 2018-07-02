@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <div class="sidebar">
 	<div class="row">
 		<!-- uncomment code for absolute positioning tweek see top comment in css -->
@@ -18,7 +19,7 @@
 						<!-- Dropdown-->
 						<li class="panel panel-default" id="dropdown"><a
 							data-toggle="collapse" href="#dropdown-lvl1"> <span
-								class="glyphicon glyphicon-user"></span> Quản lí User <span
+								class="glyphicon glyphicon-user"></span> <s:text name="users.dashboard.usermanager" /> <span
 								class="caret"></span>
 						</a> <!-- Dropdown level 1 -->
 							<div id="dropdown-lvl1" class="panel-collapse collapse">
@@ -27,7 +28,6 @@
 										<li><a href="#">Link</a></li>
 										<li><a href="#">Link</a></li>
 										<li><a href="#">Link</a></li>
-
 										<!-- Dropdown level 2 -->
 										<li class="panel panel-default" id="dropdown"><a
 											data-toggle="collapse" href="#dropdown-lvl2"> <span
