@@ -1,5 +1,6 @@
 package com.framgia.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -42,10 +43,26 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User findById(Integer id) {
 		try {
-			User user = getUserDAO().findBy("id", id);
-			return user;
+			LOGGER.info("Find user successful");
+			return getUserDAO().findBy("id", id);
 		} catch (Exception e) {
+			LOGGER.error("User not exist", e);
+			return null;
 		}
-		return null;
 	}
+
+	@Override
+	public User saveOrUpdate(User user) {
+		try {
+			if(user.getCreatedDate()==null){
+				user.setCreatedDate(new Date());
+			}
+			LOGGER.info("Save user successful");
+			return getUserDAO().saveOrUpdate(user);
+		} catch (Exception e) {
+			LOGGER.error("Save user fail", e);
+			return null;
+		}
+	}
+	
 }

@@ -8,8 +8,6 @@
 		<property name="userService" ref="userService" />
 	</bean>
 	
-
-	<!-- ================== USER LOGIN MODULE ================== -->
 	<bean id="loginAction" class="com.framgia.action.LoginAction" scope="prototype">
 		<property name="userService" ref="userService" />
 	</bean>

@@ -15,7 +15,7 @@
 </div>
 <div class="row">
 	<div class="form-inline col-md-5">
-		<s:a class="btn btn-success newUser" href="#"><s:text name="users.action.addUser" /></s:a>
+		<s:a class="btn btn-success newUser" action="newUser"><s:text name="users.action.addUser" /></s:a>
 	</div>
 </div>
 <div class="row">
@@ -33,7 +33,7 @@
 		</thead>
 		<tbody>
 			<s:iterator value="users" status="incr">
-				<s:url action="details" var="detail">
+				<s:url action="detail" var="detail">
 					<s:param name="id">${id}</s:param>
 				</s:url>
 				<tr>
