@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserService {
 			return getUserDAO().saveOrUpdate(user);
 		} catch (Exception e) {
 			LOGGER.error("Save user fail", e);
-			return null;
+			throw e;
 		}
 	}
 	

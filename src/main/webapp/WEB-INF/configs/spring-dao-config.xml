@@ -6,4 +6,11 @@
 	<bean id="userDAO" class="com.framgia.dao.impl.UserDAOImpl">
 		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
 	</bean>
+	<bean id="categoryDAO" class="com.framgia.dao.impl.CategoryDAOImpl">
+		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
+	</bean>
+	
+	<bean id="newsDAO" class="com.framgia.dao.impl.NewsDAOImpl">
+		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
+	</bean>
 </beans>

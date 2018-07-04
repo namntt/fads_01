@@ -34,6 +34,21 @@
 		</action>
 	</package>
 
+	<package name="client" namespace="/" extends="struts-default">
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" default="true" />
+		</result-types>
+
+		<action name="homepage" class="categoryAction" method="index">
+			<result name="success">home</result>
+		</action>
+
+		<action name="detail-news" class="categoryAction" method="getNews">
+			<result name="success">new-detail</result>
+		</action>
+	</package>
+
 	<package name="user" namespace="/" extends="struts-default">
 		<interceptors>
 			<interceptor name="authentication"
@@ -54,8 +69,8 @@
 		<action name="login" class="loginAction">
 			<interceptor-ref name="defaultStack"></interceptor-ref>
 			<result name="success" type="redirectAction">
-				<param name="actionName">index</param>
-  				<param name="namespace">/</param>
+				<param name="actionName">homepage</param>
+				<param name="namespace">/</param>
 			</result>
 			<result name="input">/login.jsp</result>
 		</action>

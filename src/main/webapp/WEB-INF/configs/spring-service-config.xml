@@ -14,4 +14,20 @@
 			</bean>
 		</property>
 	</bean>
+	
+	<bean id="categoryService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="com.framgia.service.impl.CategoryServiceImpl">
+				<property name="categoryDAO" ref="categoryDAO" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="newsService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="com.framgia.service.impl.NewsServiceImpl">
+				<property name="newsDAO" ref="newsDAO" />
+			</bean>
+		</property>
+	</bean>
 </beans>
