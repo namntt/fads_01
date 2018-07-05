@@ -5,5 +5,7 @@ import java.util.List;
 import com.framgia.model.News;
 
 public interface NewsService {
-	List<News> findNewsByCategoryId(Integer category_id,Integer status);
+	List<News> findNewsByCategoryId(Integer category_id, Integer status);
+
+	News findById(Integer id);
 }
