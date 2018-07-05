@@ -6,7 +6,7 @@
 	<!-- Base Definition -->
 	<definition name="base.definition" template="/admin/layouts/base-layout.jsp">
 		<put-attribute name="title" value="" />
-		<put-attribute name="jsDefault" value="" />
+		<put-attribute name="jsDefault" value="{'/assets/js/jquery-1.11.1.min.js','/assets/js/bootstrap.min.js'}" />
 		<put-attribute name="cssDefault" value="" />
 		<put-attribute name="header" value="/admin/layouts/header.jsp" />
 		<put-attribute name="menu" value="/admin/layouts/menu.jsp" />
@@ -18,7 +18,7 @@
 	</definition>
 	
 	<definition name="client-base.definition" template="/client/layouts/base-layout.jsp">
-		<put-attribute name="jsDefault" value="" />
+		<put-attribute name="jsDefault" value="{'/assets/js/jquery-1.11.1.min.js','/assets/js/bootstrap.min.js'}" />	
 		<put-attribute name="cssDefault" value="" />
 		<put-attribute name="header" value="/client/layouts/header.jsp" />
 		<put-attribute name="menu" value="/client/layouts/menu.jsp" />
@@ -39,10 +39,6 @@
 		<put-list-attribute name="cssAdd">
 			<add-attribute value="/assets/css/custom.css" />
 		</put-list-attribute>
-		<put-list-attribute name="jsDefault">
-			<add-attribute value="/assets/js/jquery-1.11.1.min.js" />
-			<add-attribute value="/assets/js/bootstrap.min.js" />
-		</put-list-attribute>
 		<put-list-attribute name="jsAdd">
 			<add-attribute value="/assets/js/custom.js" />
 		</put-list-attribute>
@@ -57,10 +53,6 @@
 		</put-list-attribute>
 		<put-list-attribute name="cssAdd">
 			<add-attribute value="/assets/css/custom.css" />
-		</put-list-attribute>
-		<put-list-attribute name="jsDefault">
-			<add-attribute value="/assets/js/jquery-1.11.1.min.js" />
-			<add-attribute value="/assets/js/bootstrap.min.js" />
 		</put-list-attribute>
 		<put-list-attribute name="jsAdd">
 			<add-attribute value="/assets/js/custom.js" />
@@ -77,10 +69,6 @@
 		<put-list-attribute name="cssAdd">
 			<add-attribute value="/assets/css/custom.css" />
 		</put-list-attribute>
-		<put-list-attribute name="jsDefault">
-			<add-attribute value="/assets/js/jquery-1.11.1.min.js" />
-			<add-attribute value="/assets/js/bootstrap.min.js" />
-		</put-list-attribute>
 		<put-list-attribute name="jsAdd">
 			<add-attribute value="/assets/js/custom.js" />
 		</put-list-attribute>
@@ -91,20 +79,28 @@
 		<put-list-attribute name="cssDefault">
 			<add-attribute value="/assets/css/bootstrap.min.css" />
 		</put-list-attribute>
-		<put-list-attribute name="jsDefault">
-			<add-attribute value="/assets/js/jquery-1.11.1.min.js" />
-			<add-attribute value="/assets/js/bootstrap.min.js" />
+		<put-list-attribute name="cssAdd">
+			<add-attribute value="/assets/css/categories.css" />
 		</put-list-attribute>
 	</definition>
 	
-	<definition name="new-detail" extends="client-base.definition">
+	<definition name="news-list" extends="client-base.definition">
 		<put-attribute name="body" value="/client/news/listNews.jsp" />
 		<put-list-attribute name="cssDefault">
 			<add-attribute value="/assets/css/bootstrap.min.css" />
 		</put-list-attribute>
-		<put-list-attribute name="jsDefault">
-			<add-attribute value="/assets/js/jquery-1.11.1.min.js" />
-			<add-attribute value="/assets/js/bootstrap.min.js" />
+		<put-list-attribute name="cssAdd">
+			<add-attribute value="/assets/css/new.css" />
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="news-detail" extends="client-base.definition">
+		<put-attribute name="body" value="/client/news/viewNew.jsp" />
+		<put-list-attribute name="cssDefault">
+			<add-attribute value="/assets/css/bootstrap.min.css" />
+		</put-list-attribute>
+		<put-list-attribute name="cssAdd">
+			<add-attribute value="/assets/css/new.css" />
 		</put-list-attribute>
 	</definition>
 	

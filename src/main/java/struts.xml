@@ -44,8 +44,12 @@
 			<result name="success">home</result>
 		</action>
 
-		<action name="detail-news" class="categoryAction" method="getNews">
-			<result name="success">new-detail</result>
+		<action name="news-list" class="categoryAction" method="getNews">
+			<result name="success">news-list</result>
+		</action>
+		
+		<action name="news-detail" class="newsAction" method="findByNewId">
+			<result name="success">news-detail</result>
 		</action>
 	</package>
 
