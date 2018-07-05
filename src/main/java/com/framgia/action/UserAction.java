@@ -23,13 +23,21 @@ public class UserAction extends ActionSupport {
 	private String fileUploadFileName;
 	private String confirmPassword;
 
+	public String changePasswordAction() {
+		return SUCCESS;
+	}
+
 	public String index() {
 		users = userService.findAll();
+		if (users == null)
+			return ERROR;
 		return SUCCESS;
 	}
 
 	public String detail() {
 		user = userService.findById(id);
+		if (user == null)
+			return ERROR;
 		return SUCCESS;
 	}
 
@@ -48,31 +56,40 @@ public class UserAction extends ActionSupport {
 		}
 		return flag;
 	}
-	
-	public String saveOrUpdateUser() {
-		if (saveFile()) {
-			userService.saveOrUpdate(user);		
-		}
+
+	public String addUser() {
+		if (!saveFile() || !validUser())
+			return INPUT;
+		userService.addUser(user);
 		return SUCCESS;
 	}
 
-	public void validate() {
-		try {
-			if (StringUtils.isEmpty(user.getUsername()) || StringUtils.isEmpty(user.getPassword())
-					|| StringUtils.isEmpty(user.getBirthday().toString()) || StringUtils.isEmpty(user.getFullname())
-					|| StringUtils.isEmpty(user.getAvatar())) {
-				addFieldError("user.username", getText("users.username.required"));
-				addFieldError("user.password", getText("users.password.required"));
-				addFieldError("user.birthday", getText("users.birthday.required"));
-				addFieldError("user.fullname", getText("users.fullname.required"));
-				addFieldError("user.avatar", getText("users.avatar.required"));
-			}
-			if (!user.getPassword().equals(confirmPassword)) {
-				addFieldError("confirmPassword", getText("users.confirmPassword.notEqual"));
-			}
-
-		} catch (NullPointerException ne) {
+	private boolean validUser() {
+		if (StringUtils.isEmpty(user.getUsername())) {
+			addFieldError("user.username", getText("users.username.required"));
+			return false;
 		}
+		if (StringUtils.isEmpty(user.getPassword())) {
+			addFieldError("user.password", getText("users.password.required"));
+			return false;
+		}
+		if (StringUtils.isEmpty(user.getBirthday().toString())) {
+			addFieldError("user.birthday", getText("users.birthday.required"));
+			return false;
+		}
+		if (StringUtils.isEmpty(user.getFullname())) {
+			addFieldError("user.fullname", getText("users.fullname.required"));
+			return false;
+		}
+		if (StringUtils.isEmpty(user.getAvatar())) {
+			addFieldError("user.avatar", getText("users.avatar.required"));
+			return false;
+		}
+		return true;
+	}
+
+	public UserService getUserService() {
+		return userService;
 	}
 
 	public void setUserService(UserService userService) {
@@ -142,5 +159,4 @@ public class UserAction extends ActionSupport {
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
 	}
-
 }

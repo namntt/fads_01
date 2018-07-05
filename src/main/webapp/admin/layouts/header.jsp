@@ -35,6 +35,7 @@
 						<ul class="dropdown-menu" role="menu">
 							<li>${USER.username}</li>
 							<li><s:a action=""><s:text name="users.action.logout" /></s:a></li>
+							<li><s:a action="viewsChangePass"><s:text name="users.action.changePass" /></s:a></li>
 						</ul>
 					</li>
 				</ul>

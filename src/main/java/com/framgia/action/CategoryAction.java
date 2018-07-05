@@ -103,5 +103,4 @@ public class CategoryAction extends BaseAction {
 	public void setChoiceAdress(String choiceAdress) {
 		this.choiceAdress = choiceAdress;
 	}
-
 }

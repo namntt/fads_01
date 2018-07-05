@@ -10,8 +10,11 @@ import com.framgia.service.CityService;
 import com.framgia.service.NewsService;
 import com.framgia.service.UserFollowNewsService;
 import com.framgia.service.UserService;
+import com.opensymphony.xwork2.ActionSupport;
 
-public class BaseAction implements SessionAware {
+public class BaseAction extends ActionSupport implements SessionAware {
+
+	private static final long serialVersionUID = 1L;
 	protected CategoryService categoryService;
 	protected NewsService newsService;
 	protected CityService cityService;
