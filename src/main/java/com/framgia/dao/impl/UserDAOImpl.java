@@ -9,6 +9,6 @@ public class UserDAOImpl extends GenericDAOAbstract<User, Integer> implements Us
 	public User findByUsenameAndPassword(String username, String password) {
 
 		return (User) getSession().createQuery("from User where username=:username and password=:password")
-				.setParameter("username", username).setParameter("password", password).getSingleResult();
+				.setParameter("username", username).setParameter("password", password).uniqueResult();
 	}
 }

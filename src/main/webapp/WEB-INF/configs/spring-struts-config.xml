@@ -15,6 +15,7 @@
 	<bean id="categoryAction" class="com.framgia.action.CategoryAction" scope="prototype">
 		<property name="categoryService" ref="categoryService" />
 		<property name="newsService" ref="newsService" />
+		<property name="cityService" ref="cityService" />
 	</bean>
 	
 	<bean id="newsAction" class="com.framgia.action.NewsAction" scope="prototype">

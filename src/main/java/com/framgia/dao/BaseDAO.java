@@ -3,6 +3,8 @@ package com.framgia.dao;
 import java.io.Serializable;
 import java.util.List;
 
+import com.framgia.search.Search;
+
 public interface BaseDAO<T,PK> {
 	
 	public List<T> findAll();

@@ -7,17 +7,12 @@ import org.slf4j.LoggerFactory;
 
 import com.framgia.dao.NewsDAO;
 import com.framgia.model.News;
+import com.framgia.search.Search;
 import com.framgia.service.NewsService;
 
 public class NewsServiceImpl implements NewsService {
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 	private NewsDAO newsDAO;
-
-	@Override
-	public List<News> findNewsByCategoryId(Integer category_id, Integer status) {
-		LOGGER.info("List news by category");
-		return getNewsDAO().findNewsByCategoryId(category_id, status);
-	}
 
 	public NewsDAO getNewsDAO() {
 		return newsDAO;
@@ -28,8 +23,24 @@ public class NewsServiceImpl implements NewsService {
 	}
 
 	@Override
+	public List<News> findNewsByCategoryId(Integer category_id, Integer status, Search<News> searchNew) {
+		try {
+			LOGGER.info("List news by category");
+			return getNewsDAO().findNewsByCategoryId(category_id, status, searchNew);
+		} catch (Exception e) {
+			return null;
+		}
+
+	}
+
+	@Override
 	public News findById(Integer id) {
-		return getNewsDAO().findBy("id", id);
+		try {
+			LOGGER.info("Find by new id");
+			return getNewsDAO().findBy("id", id);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 }

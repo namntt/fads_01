@@ -56,8 +56,8 @@ public abstract class GenericDAOAbstract<T, PK extends Serializable> {
 		cr.where(builder.equal(root.get(atribute), key));
 		return getSession().createQuery(cr.select(root)).getSingleResult();
 	}
-	
-	public T saveOrUpdate(T entity){
+
+	public T saveOrUpdate(T entity) {
 		getSession().saveOrUpdate(entity);
 		return entity;
 	}

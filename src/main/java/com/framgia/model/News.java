@@ -10,9 +10,9 @@ public class News implements Serializable {
 
 	private Integer id;
 	private Category category;
+	private City city;
 	private String tittle;
 	private String content;
-	private String address;
 	private String phoneNumber;
 	private Integer status;
 	private Date startDate;
@@ -57,14 +57,6 @@ public class News implements Serializable {
 
 	public void setContent(String content) {
 		this.content = content;
-	}
-
-	public String getAddress() {
-		return this.address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
 	}
 
 	public String getPhoneNumber() {
@@ -145,6 +137,14 @@ public class News implements Serializable {
 
 	public void setNewsImages(List<NewsImage> newsImages) {
 		this.newsImages = newsImages;
+	}
+
+	public City getCity() {
+		return city;
+	}
+
+	public void setCity(City city) {
+		this.city = city;
 	}
 
 }

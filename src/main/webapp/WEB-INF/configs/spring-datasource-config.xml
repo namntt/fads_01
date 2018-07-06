@@ -38,6 +38,7 @@
 				<value>com/framgia/model/hbm/Role.hbm.xml</value>
 				<value>com/framgia/model/hbm/UserFollowNews.hbm.xml</value>
 				<value>com/framgia/model/hbm/UserRole.hbm.xml</value>
+				<value>com/framgia/model/hbm/City.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
