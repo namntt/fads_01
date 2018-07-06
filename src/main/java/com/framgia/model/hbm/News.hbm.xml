@@ -9,14 +9,14 @@
         <many-to-one class="Category" fetch="select" name="category">
             <column name="category_id"/>
         </many-to-one>
+        <many-to-one class="City" fetch="select" name="city">
+            <column name="city_id"/>
+        </many-to-one>
         <property  name="tittle"  type="string" >
             <column length="100" name="tittle"/>
         </property>
         <property  name="content"  type="string" >
             <column length="250" name="content"/>
-        </property>
-        <property  name="address"  type="string" >
-            <column length="100" name="address"/>
         </property>
         <property  name="phoneNumber"  type="string" >
             <column length="45" name="phone_number"/>

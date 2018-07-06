@@ -30,4 +30,12 @@
 			</bean>
 		</property>
 	</bean>
+	
+	<bean id="cityService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="com.framgia.service.impl.CityServiceImpl">
+				<property name="cityDAO" ref="cityDAO" />
+			</bean>
+		</property>
+	</bean>
 </beans>
