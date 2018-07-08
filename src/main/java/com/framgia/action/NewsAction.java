@@ -9,8 +9,12 @@ public class NewsAction extends ActionSupport {
 	private NewsService newsService;
 	private News news;
 	private Integer id;
+	
+	public String index(){
+		return SUCCESS;
+	}
 
-	public String findByNewId() {
+	public String showDetailNews() {
 		news = newsService.findById(id);
 		return SUCCESS;
 	}

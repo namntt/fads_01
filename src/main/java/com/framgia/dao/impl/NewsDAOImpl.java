@@ -7,21 +7,34 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Root;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.framgia.dao.NewsDAO;
 import com.framgia.model.Category;
+import com.framgia.model.City;
 import com.framgia.model.News;
+import com.framgia.search.Search;
 
 public class NewsDAOImpl extends GenericDAOAbstract<News, Integer> implements NewsDAO {
 
 	@Override
-	public List<News> findNewsByCategoryId(Integer category_id, Integer status) {
+	public List<News> findNewsByCategoryId(Integer category_id, Integer status, Search<News> search) {
 		CriteriaBuilder builder = getSession().getCriteriaBuilder();
 		CriteriaQuery<News> cr = builder.createQuery(News.class);
 		Root<News> root = cr.from(News.class);
 		Join<News, Category> join = root.join("category");
+		Join<News, City> join1 = root.join("city");
 		if (category_id != null) {
 			cr.where(
 					builder.and(builder.equal(join.get("id"), category_id), builder.equal(root.get("status"), status)));
+		}
+		if (StringUtils.isNotBlank(search.getFieldsSearch().getTittle())
+				|| search.getFieldsSearch().getCity().getId() != null) {
+			cr.where(builder.and(
+					builder.like(builder.lower(root.get("tittle")),
+							"%" + search.getFieldsSearch().getTittle() + "%"),
+					builder.equal(join.get("id"), category_id), builder.equal(root.get("status"), status),
+					builder.equal(join1.get("id"), search.getFieldsSearch().getCity().getId())));
 		}
 		cr.orderBy(builder.desc(root.get("startDate")));
 		return (List<News>) getSession().createQuery(cr.select(root)).getResultList();

@@ -5,7 +5,7 @@
 	<s:iterator value="categories">
 		<div class="col-md-3 categories">
 			<s:url action="news-list" var="news-list">
-				<s:param name="id">${id}</s:param>
+				<s:param name="id" value="id"/>
 			</s:url>
 			<s:a href="%{news-list}">${name}</s:a>
 		</div>

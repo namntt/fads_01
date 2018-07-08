@@ -10,7 +10,7 @@
 	<constant name="struts.ui.theme" value="simple" />
 	<constant name="struts.multipart.maxSize" value="1000000" />
 	<!-- Define default-web package: struts-default -->
-	<package name="default-web" namespace="/" extends="struts-default">
+	<package name="default-web" namespace="/admin" extends="struts-default">
 		<result-types>
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" default="true" />
@@ -44,11 +44,11 @@
 			<result name="success">home</result>
 		</action>
 
-		<action name="news-list" class="categoryAction" method="getNews">
+		<action name="news-list" class="categoryAction" method="showNews">
 			<result name="success">news-list</result>
 		</action>
 		
-		<action name="news-detail" class="newsAction" method="findByNewId">
+		<action name="news-detail" class="newsAction" method="showDetailNews">
 			<result name="success">news-detail</result>
 		</action>
 	</package>

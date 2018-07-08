@@ -13,4 +13,8 @@
 	<bean id="newsDAO" class="com.framgia.dao.impl.NewsDAOImpl">
 		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
 	</bean>
+	
+	<bean id="cityDAO" class="com.framgia.dao.impl.CityDAOImpl">
+		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
+	</bean>
 </beans>
