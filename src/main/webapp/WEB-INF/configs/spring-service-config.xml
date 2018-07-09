@@ -6,7 +6,7 @@
 	http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
-	
+
 	<bean id="userService" parent="transactionProxyTemplate">
 		<property name="target">
 			<bean class="com.framgia.service.impl.UserServiceImpl">
@@ -14,7 +14,7 @@
 			</bean>
 		</property>
 	</bean>
-	
+
 	<bean id="categoryService" parent="transactionProxyTemplate">
 		<property name="target">
 			<bean class="com.framgia.service.impl.CategoryServiceImpl">
@@ -22,7 +22,7 @@
 			</bean>
 		</property>
 	</bean>
-	
+
 	<bean id="newsService" parent="transactionProxyTemplate">
 		<property name="target">
 			<bean class="com.framgia.service.impl.NewsServiceImpl">
@@ -30,7 +30,7 @@
 			</bean>
 		</property>
 	</bean>
-	
+
 	<bean id="cityService" parent="transactionProxyTemplate">
 		<property name="target">
 			<bean class="com.framgia.service.impl.CityServiceImpl">
@@ -38,4 +38,13 @@
 			</bean>
 		</property>
 	</bean>
+
+	<bean id="userFollowNewsService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="com.framgia.service.impl.UserFollowNewsServiceImpl">
+				<property name="userFollowNewsDAO" ref="userFollowNewsDAO" />
+			</bean>
+		</property>
+	</bean>
+
 </beans>

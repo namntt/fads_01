@@ -13,10 +13,9 @@ public class UserFollowNews implements Serializable {
 	public UserFollowNews() {
 	}
 
-	public UserFollowNews(News news, User userAccount, Integer status) {
+	public UserFollowNews(News news, User userAccount) {
 		this.news = news;
 		this.userAccount = userAccount;
-		this.status = status;
 	}
 
 	public Integer getId() {

@@ -20,6 +20,10 @@ public class User implements Serializable {
 
 	public User() {
 	}
+	
+	public User(Integer id) {
+		this.id=id;
+	}
 
 	public Integer getId() {
 		return this.id;

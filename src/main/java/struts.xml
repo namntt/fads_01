@@ -34,7 +34,7 @@
 		</action>
 	</package>
 
-	<package name="client" namespace="/" extends="struts-default">
+	<package name="client" namespace="/" extends="json-default">
 		<result-types>
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" default="true" />
@@ -51,6 +51,17 @@
 		<action name="news-detail" class="newsAction" method="showDetailNews">
 			<result name="success">news-detail</result>
 		</action>
+		
+		<action name="news-follow" class="userFollowNewsAction" method="create">
+			<result name="success" type="json">
+			  <param name="includeProperties">
+			    userFollowNews,
+			    userFollowNews.id
+			  </param>
+			  <param name="ignoreHierarchy">true</param>
+			</result>
+		</action>
+		
 	</package>
 
 	<package name="user" namespace="/" extends="struts-default">

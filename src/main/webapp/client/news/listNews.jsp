@@ -31,15 +31,21 @@
 			<s:iterator value="subCategory">
 				<tbody>
 					<tr>
-						<td><s:url action="news-detail" var="news-detail">
+						<td>
+							<s:url action="news-detail" var="newsDetail">
 								<s:param name="id">${id}</s:param>
 							</s:url>
 							<div class="title">
-								<s:a href="%{news-detail}">${tittle}</s:a>
+								<s:a href="%{newsDetail}">${tittle}</s:a>
+							</div>
+							<div class="price">
+								${price}vnd
 							</div>
 							<div class="time">
 								<s:date name="startDate" format="dd/MM/yyyy" />
-							</div></td>
+							</div>
+						</td>
+							
 					</tr>
 				</tbody>
 
