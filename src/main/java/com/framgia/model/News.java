@@ -26,6 +26,10 @@ public class News implements Serializable {
 
 	public News() {
 	}
+	
+	public News(Integer id) {
+		this.id=id;
+	}
 
 	public Integer getId() {
 		return this.id;

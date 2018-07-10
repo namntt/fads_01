@@ -9,36 +9,34 @@
 <html lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<sx:head />
 <%-- Default CSS --%>
-<tiles:importAttribute name="cssDefault" />
-<c:forEach var="item" items="${cssDefault}">
+<tilesx:useAttribute id="cssList" name="cssDefault" classname="java.util.List" />
+<c:forEach var="item" items="${cssList}">
 	<link rel="stylesheet" href="<c:url value='${item}'/>" type="text/css" />
 </c:forEach>
 
 <%-- Default JS --%>
-<tiles:importAttribute name="jsDefault" />
-<c:forEach var="item" items="${jsDefault}">
+<tilesx:useAttribute id="jsList" name="jsDefault" classname="java.util.List" />
+<c:forEach var="item" items="${jsList}">
 	<script src="<c:url value="${item}"/>"></script>
 </c:forEach>
 
 <title><tiles:insertAttribute name="title" ignore="true" /></title>
+<%-- Default CSS --%>
+<tilesx:useAttribute name="cssAdd" id="cssAddList" classname="java.util.List"/>
+<c:forEach var="item" items="${cssAddList}">
+	<link rel="stylesheet" href="<c:url value='${item}'/>" type="text/css" />
+</c:forEach>
+
+<%-- Addition JS --%>
+<tilesx:useAttribute name="jsAdd" id="jsAddList" classname="java.util.List"/>
+<c:forEach var="item" items="${jsAddList}">
+	<script src="<c:url value="${item}"/>"></script>
+</c:forEach>
 </head>
 <body>
 	<tiles:insertAttribute name="header" />
 	<div class="container"><tiles:insertAttribute name="body" /></div>
 	<tiles:insertAttribute name="footer" />
 </body>
-
-<%-- Default CSS --%>
-<tiles:importAttribute name="cssAdd" />
-<c:forEach var="item" items="${cssAdd}">
-	<link rel="stylesheet" href="<c:url value='${item}'/>" type="text/css" />
-</c:forEach>
-
-<%-- Addition JS --%>
-<tiles:importAttribute name="jsAdd" />
-<c:forEach var="item" items="${jsAdd}">
-	<script src="<c:url value="${item}"/>"></script>
-</c:forEach>
 </html>

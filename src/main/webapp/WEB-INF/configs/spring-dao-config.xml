@@ -17,4 +17,9 @@
 	<bean id="cityDAO" class="com.framgia.dao.impl.CityDAOImpl">
 		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
 	</bean>
+	
+	<bean id="userFollowNewsDAO" class="com.framgia.dao.impl.UserFollowNewsDAOImpl">
+		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
+	</bean>
+	
 </beans>

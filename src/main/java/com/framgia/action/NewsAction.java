@@ -1,26 +1,24 @@
 package com.framgia.action;
 
 import com.framgia.model.News;
-import com.framgia.service.NewsService;
-import com.opensymphony.xwork2.ActionSupport;
+import com.framgia.model.User;
+import com.framgia.model.UserFollowNews;
 
-public class NewsAction extends ActionSupport {
-	private static final long serialVersionUID = 1L;
-	private NewsService newsService;
+public class NewsAction extends BaseAction {
 	private News news;
 	private Integer id;
-	
-	public String index(){
-		return SUCCESS;
+	private UserFollowNews userFollowNews;
+
+	public String index() {
+		return "success";
 	}
 
 	public String showDetailNews() {
+		User user = (User) getSessionAttributes().get("USER");
 		news = newsService.findById(id);
-		return SUCCESS;
-	}
+		userFollowNews = userFollowNewsService.getByUserIdAndNewsId(user.getId(), id);
 
-	public void setNewsService(NewsService newsService) {
-		this.newsService = newsService;
+		return "success";
 	}
 
 	public News getNews() {
@@ -37,6 +35,14 @@ public class NewsAction extends ActionSupport {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public UserFollowNews getUserFollowNews() {
+		return userFollowNews;
+	}
+
+	public void setUserFollowNews(UserFollowNews userFollowNews) {
+		this.userFollowNews = userFollowNews;
 	}
 
 }

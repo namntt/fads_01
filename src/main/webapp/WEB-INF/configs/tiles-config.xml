@@ -18,16 +18,26 @@
 	</definition>
 	
 	<definition name="client-base.definition" template="/client/layouts/base-layout.jsp">
-		<put-attribute name="jsDefault" value="{'/assets/js/jquery-1.11.1.min.js','/assets/js/bootstrap.min.js'}" />	
-		<put-attribute name="cssDefault" value="" />
 		<put-attribute name="header" value="/client/layouts/header.jsp" />
 		<put-attribute name="menu" value="/client/layouts/menu.jsp" />
-		<put-attribute name="body" value="" />
-		<put-attribute name="jsAdd" value="" />
-		<put-attribute name="cssAdd" value="" />
 		<put-attribute name="footer" value="/client/layouts/footer.jsp" />
+		<put-list-attribute name="cssDefault">
+			<add-attribute value="/assets/css/bootstrap.min.css" />
+		</put-list-attribute>
+		<put-list-attribute name="jsDefault">
+			<add-attribute value="/assets/js/jquery-3.3.1.min.js" />
+			<add-attribute value="/assets/js/bootstrap.min.js" />
+		</put-list-attribute>
+		<put-list-attribute name="cssAdd">
+			<add-attribute value="/assets/css/new.css" />
+			<add-attribute value="/assets/css/follow.css" />
+			<add-attribute value="/assets/css/categories.css" />
+		</put-list-attribute>
+		<put-list-attribute name="jsAdd">
+			<add-attribute value="/assets/js/follow.js" />
+		</put-list-attribute>
 	</definition>
-
+	
 	<!-- list users -->
 	<definition name="index" extends="base.definition">
 		<put-attribute name="title" value="List" />
@@ -76,32 +86,14 @@
 	
 	<definition name="home" extends="client-base.definition">
 		<put-attribute name="body" value="/client/category/listCategory.jsp" />
-		<put-list-attribute name="cssDefault">
-			<add-attribute value="/assets/css/bootstrap.min.css" />
-		</put-list-attribute>
-		<put-list-attribute name="cssAdd">
-			<add-attribute value="/assets/css/categories.css" />
-		</put-list-attribute>
 	</definition>
 	
 	<definition name="news-list" extends="client-base.definition">
 		<put-attribute name="body" value="/client/news/listNews.jsp" />
-		<put-list-attribute name="cssDefault">
-			<add-attribute value="/assets/css/bootstrap.min.css" />
-		</put-list-attribute>
-		<put-list-attribute name="cssAdd">
-			<add-attribute value="/assets/css/new.css" />
-		</put-list-attribute>
 	</definition>
 	
 	<definition name="news-detail" extends="client-base.definition">
 		<put-attribute name="body" value="/client/news/viewNew.jsp" />
-		<put-list-attribute name="cssDefault">
-			<add-attribute value="/assets/css/bootstrap.min.css" />
-		</put-list-attribute>
-		<put-list-attribute name="cssAdd">
-			<add-attribute value="/assets/css/new.css" />
-		</put-list-attribute>
 	</definition>
 	
 </tiles-definitions>

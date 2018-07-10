@@ -62,4 +62,8 @@ public abstract class GenericDAOAbstract<T, PK extends Serializable> {
 		return entity;
 	}
 
+	public void delete(T entity) {
+		getSession().delete(entity);
+	}
+
 }

@@ -22,19 +22,19 @@ public class NewsDAOImpl extends GenericDAOAbstract<News, Integer> implements Ne
 		CriteriaBuilder builder = getSession().getCriteriaBuilder();
 		CriteriaQuery<News> cr = builder.createQuery(News.class);
 		Root<News> root = cr.from(News.class);
-		Join<News, Category> join = root.join("category");
-		Join<News, City> join1 = root.join("city");
+		Join<News, Category> join_category = root.join("category");
+		Join<News, City> join_city = root.join("city");
 		if (category_id != null) {
 			cr.where(
-					builder.and(builder.equal(join.get("id"), category_id), builder.equal(root.get("status"), status)));
+					builder.and(builder.equal(join_category.get("id"), category_id), builder.equal(root.get("status"), status)));
 		}
 		if (StringUtils.isNotBlank(search.getFieldsSearch().getTittle())
 				|| search.getFieldsSearch().getCity().getId() != null) {
 			cr.where(builder.and(
 					builder.like(builder.lower(root.get("tittle")),
 							"%" + search.getFieldsSearch().getTittle() + "%"),
-					builder.equal(join.get("id"), category_id), builder.equal(root.get("status"), status),
-					builder.equal(join1.get("id"), search.getFieldsSearch().getCity().getId())));
+					builder.equal(join_category.get("id"), category_id), builder.equal(root.get("status"), status),
+					builder.equal(join_city.get("id"), search.getFieldsSearch().getCity().getId())));
 		}
 		cr.orderBy(builder.desc(root.get("startDate")));
 		return (List<News>) getSession().createQuery(cr.select(root)).getResultList();
