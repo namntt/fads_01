@@ -52,7 +52,7 @@
 			<result name="success">news-detail</result>
 		</action>
 		
-		<action name="news-follow" class="userFollowNewsAction" method="create">
+		<action name="news-follow" class="userFollowNewsAction" method="followOrUnfollowNews">
 			<result name="success" type="json">
 			  <param name="includeProperties">
 			    userFollowNews,

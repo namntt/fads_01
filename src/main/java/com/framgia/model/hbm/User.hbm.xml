@@ -39,5 +39,10 @@
 			<index column="id" />
 			<one-to-many class="UserFollowNews" />
 		</list>
+		<list name="newses" fetch="select" inverse="true">
+			<key column="new_id" />
+			<index column="id" />
+			<one-to-many class="News" />
+		</list>
     </class>
 </hibernate-mapping>

@@ -9,13 +9,12 @@ public class UserFollowNewsAction extends BaseAction {
 	private Integer id;
 	private UserFollowNews userFollowNews;
 
-	public String create() {
-		User user = (User) getSessionAttributes().get("USER");
-		userFollowNews = userFollowNewsService.getByUserIdAndNewsId(user.getId(), newsId);
+	public String followOrUnfollowNews() {
+		userFollowNews = userFollowNewsService.getByUserIdAndNewsId(getCurrentUser().getId(), newsId);
 		if (userFollowNews != null) {
 			userFollowNewsService.removeUserFollowNews(userFollowNews);
 		} else {
-			userFollowNews = new UserFollowNews(new News(newsId), new User(user.getId()));
+			userFollowNews = new UserFollowNews(new News(newsId), new User(getCurrentUser().getId()));
 			userFollowNews = userFollowNewsService.createFollow(userFollowNews);
 		}
 		return "success";
