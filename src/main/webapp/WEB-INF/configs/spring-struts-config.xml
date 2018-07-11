@@ -16,6 +16,7 @@
 		<property name="categoryService" ref="categoryService" />
 		<property name="newsService" ref="newsService" />
 		<property name="cityService" ref="cityService" />
+		<property name="userFollowNewsService" ref="userFollowNewsService" />
 	</bean>
 	
 	<bean id="changePassAction" class="com.framgia.action.ChangePasswordAction" scope="prototype">

@@ -28,7 +28,7 @@
 					<td class="name"><s:text name="client.list.new" /></td>
 				</tr>
 			</thead>
-			<s:iterator value="subCategory">
+			<s:iterator value="newses" var="news">
 				<tbody>
 					<tr>
 						<td>

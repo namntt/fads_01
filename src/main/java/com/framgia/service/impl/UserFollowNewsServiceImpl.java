@@ -27,7 +27,7 @@ public class UserFollowNewsServiceImpl implements UserFollowNewsService {
 	}
 
 	@Override
-	public List<UserFollowNews> getAll() {
+	public List<UserFollowNews> loadAll() {
 		try {
 			return getUserFollowNewsDAO().findAll();
 		} catch (Exception e) {
@@ -36,7 +36,7 @@ public class UserFollowNewsServiceImpl implements UserFollowNewsService {
 	}
 
 	@Override
-	public UserFollowNews getByUserIdAndNewsId(Integer userId, Integer newsId) {
+	public UserFollowNews loadByUserIdAndNewsId(Integer userId, Integer newsId) {
 		try {
 			return getUserFollowNewsDAO().findByUserIdAndNewsId(userId, newsId);
 		} catch (Exception e) {
@@ -50,6 +50,15 @@ public class UserFollowNewsServiceImpl implements UserFollowNewsService {
 			getUserFollowNewsDAO().delete(userFollowNews);
 		} catch (Exception e) {
 			throw e;
+		}
+	}
+
+	@Override
+	public List<Integer> loadQuantityUserFollowNews() {
+		try{
+			return getUserFollowNewsDAO().findQuantityUserFollowNews();
+		}catch (Exception e) {
+			return null;
 		}
 	}
 

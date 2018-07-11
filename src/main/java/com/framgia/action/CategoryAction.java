@@ -10,18 +10,22 @@ import com.framgia.search.Search;
 import com.framgia.search.SearchNews;
 
 public class CategoryAction extends BaseAction {
-
+	private static final long serialVersionUID = 1L;
 	private Category category;
 	private List<Category> categories;
-	private List<News> subCategory;
 	private Integer id;
 	private List<String> cityNames;
 	private List<City> cities;
 	private String keyword;
 	private String choiceAdress;
+	private List<Integer> newsIds;
+	private List<News> newses;
 
 	public String index() {
 		categories = categoryService.findAll();
+		newsIds = userFollowNewsService.loadQuantityUserFollowNews();
+		newses = new ArrayList<News>();
+		newsIds.forEach(news_id -> newses.add(newsService.findById(news_id)));
 		return "success";
 	}
 
@@ -30,13 +34,11 @@ public class CategoryAction extends BaseAction {
 		searchNew.getFieldsSearch().setTittle(getKeyword());
 		cities = cityService.findAll();
 		cityNames = new ArrayList<String>();
-		for (City city : cities) {
-			cityNames.add(city.getName());
-		}
+		cities.forEach(city -> cityNames.add(city.getName()));
 		if (getChoiceAdress() != null) {
 			searchNew.getFieldsSearch().getCity().setId(cityService.findByName(getChoiceAdress()).getId());
 		}
-		subCategory = newsService.findNewsByCategoryId(id, 1, searchNew);
+		newses = newsService.findNewsByCategoryId(id, 1, searchNew);
 		return "success";
 	}
 
@@ -62,14 +64,6 @@ public class CategoryAction extends BaseAction {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public List<News> getSubCategory() {
-		return subCategory;
-	}
-
-	public void setSubCategory(List<News> subCategory) {
-		this.subCategory = subCategory;
 	}
 
 	public List<String> getCityNames() {
@@ -103,4 +97,21 @@ public class CategoryAction extends BaseAction {
 	public void setChoiceAdress(String choiceAdress) {
 		this.choiceAdress = choiceAdress;
 	}
+
+	public List<Integer> getNewsIds() {
+		return newsIds;
+	}
+
+	public void setNewsIds(List<Integer> newsIds) {
+		this.newsIds = newsIds;
+	}
+
+	public List<News> getNewses() {
+		return newses;
+	}
+
+	public void setNewses(List<News> newses) {
+		this.newses = newses;
+	}
+
 }

@@ -5,6 +5,7 @@ import com.framgia.model.User;
 import com.framgia.model.UserFollowNews;
 
 public class NewsAction extends BaseAction {
+	private static final long serialVersionUID = 1L;
 	private News news;
 	private Integer id;
 	private UserFollowNews userFollowNews;
@@ -16,7 +17,7 @@ public class NewsAction extends BaseAction {
 	public String showDetailNews() {
 		User user = (User) getSessionAttributes().get("USER");
 		news = newsService.findById(id);
-		userFollowNews = userFollowNewsService.getByUserIdAndNewsId(user.getId(), id);
+		userFollowNews = userFollowNewsService.loadByUserIdAndNewsId(user.getId(), id);
 		return "success";
 	}
 
