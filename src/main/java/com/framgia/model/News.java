@@ -18,7 +18,7 @@ public class News implements Serializable {
 	private Date startDate;
 	private Date endDate;
 	private Date createDate;
-	private Integer userId;
+	private User user;
 	private Double price;
 	private List<UserFollowNews> userFollowNewses;
 	private List<Comment> comments;
@@ -26,9 +26,9 @@ public class News implements Serializable {
 
 	public News() {
 	}
-	
+
 	public News(Integer id) {
-		this.id=id;
+		this.id = id;
 	}
 
 	public Integer getId() {
@@ -103,12 +103,12 @@ public class News implements Serializable {
 		this.createDate = createDate;
 	}
 
-	public Integer getUserId() {
-		return this.userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Double getPrice() {

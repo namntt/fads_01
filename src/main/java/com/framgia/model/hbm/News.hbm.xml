@@ -12,6 +12,9 @@
         <many-to-one class="City" fetch="select" name="city">
             <column name="city_id"/>
         </many-to-one>
+        <many-to-one class="User" fetch="select" name="user">
+            <column name="user_id"/>
+        </many-to-one>
         <property  name="tittle"  type="string" >
             <column length="100" name="tittle"/>
         </property>
@@ -32,9 +35,6 @@
         </property>
         <property  name="createDate"  type="timestamp" >
             <column length="19" name="create_date"/>
-        </property>
-        <property  name="userId"  type="java.lang.Integer" >
-            <column name="user_id"/>
         </property>
         <property  name="price"  type="java.lang.Double" >
             <column name="price" precision="22" scale="0"/>

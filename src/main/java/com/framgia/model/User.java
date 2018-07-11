@@ -17,12 +17,13 @@ public class User implements Serializable {
 	private List<Comment> comments;
 	private List<UserRole> userRoles;
 	private List<UserFollowNews> userFollowNewses;
+	private List<News> newses;
 
 	public User() {
 	}
-	
+
 	public User(Integer id) {
-		this.id=id;
+		this.id = id;
 	}
 
 	public Integer getId() {
@@ -103,6 +104,14 @@ public class User implements Serializable {
 
 	public void setUserFollowNewses(List<UserFollowNews> userFollowNewses) {
 		this.userFollowNewses = userFollowNewses;
+	}
+
+	public List<News> getNewses() {
+		return newses;
+	}
+
+	public void setNewses(List<News> newses) {
+		this.newses = newses;
 	}
 
 }

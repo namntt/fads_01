@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.framgia.model.User;
 import com.framgia.service.CategoryService;
 import com.framgia.service.CityService;
 import com.framgia.service.NewsService;
@@ -17,6 +18,12 @@ public class BaseAction implements SessionAware {
 	protected UserService userService;
 	protected UserFollowNewsService userFollowNewsService;
 	protected Map<String, Object> sessionAttributes;
+	private User currentUser;
+
+	public User getCurrentUser() {
+		this.currentUser = (User) getSessionAttributes().get("USER");
+		return currentUser;
+	}
 
 	public void setUserService(UserService userService) {
 		this.userService = userService;
