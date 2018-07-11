@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	    http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context 
 		http://www.springframework.org/schema/context/spring-context.xsd">
-	
+
 	<context:property-placeholder location="classpath:database-config.properties" />
-	
+
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${jdbc.driverClassName}" />
@@ -30,23 +30,25 @@
 		</property>
 		<property name="mappingResources">
 			<list>
-				<value>com/framgia/model/hbm/User.hbm.xml</value>
-				<value>com/framgia/model/hbm/Category.hbm.xml</value>
-				<value>com/framgia/model/hbm/Comment.hbm.xml</value>
-				<value>com/framgia/model/hbm/News.hbm.xml</value>
-				<value>com/framgia/model/hbm/NewsImage.hbm.xml</value>
 				<value>com/framgia/model/hbm/Role.hbm.xml</value>
-				<value>com/framgia/model/hbm/UserFollowNews.hbm.xml</value>
 				<value>com/framgia/model/hbm/UserRole.hbm.xml</value>
 				<value>com/framgia/model/hbm/City.hbm.xml</value>
+				<value>com/framgia/model/hbm/Category.hbm.xml</value>
+				<value>com/framgia/model/hbm/User.hbm.xml</value>
+				<value>com/framgia/model/hbm/News.hbm.xml</value>
+				<value>com/framgia/model/hbm/NewsImage.hbm.xml</value>
+				<value>com/framgia/model/hbm/UserFollowNews.hbm.xml</value>
+				<value>com/framgia/model/hbm/Comment.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
+	
 	<!-- Transaction manager for a single Hibernate SessionFactory -->
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	
 	<bean id="transactionProxyTemplate" abstract="true"
 		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 		<property name="transactionManager" ref="transactionManager" />
@@ -60,11 +62,10 @@
 				<prop key="insert*">PROPAGATION_REQUIRED</prop>
 				<prop key="update*">PROPAGATION_REQUIRED</prop>
 				<prop key="edit*">PROPAGATION_REQUIRED</prop>
-				<prop key="get*">PROPAGATION_REQUIRED</prop>
 				<prop key="find*">PROPAGATION_REQUIRED</prop>
 				<prop key="load*">PROPAGATION_REQUIRED</prop>
 				<prop key="*">PROPAGATION_SUPPORTS</prop>
 			</props>
 		</property>
-	</bean> 
+	</bean>
 </beans>

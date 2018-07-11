@@ -3,6 +3,7 @@
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
+
 			<button type="button"
 				class="navbar-toggle navbar-toggle-sidebar collapsed">MENU
 			</button>
@@ -23,13 +24,20 @@
 					<input type="text" name="searchKeyword" class="form-control"
 						placeholder="Search">
 
+
 				</div>
 				<button type="submit" class="btn btn-default">
 					<i class="glyphicon glyphicon-search"></i>
 				</button>
+
 			</form>
 			<ul class="nav navbar-nav navbar-right">
-				<li><s:a action="favorite-index"><s:text name="client.action.favorite" /></s:a></li>
+				<li><s:a action="favorite-index">
+						<s:text name="client.action.favorite" />
+					</s:a></li>
+				<li><s:a class="btn-info" action="postnews">
+						<s:text name="news.action.post" />
+					</s:a></li>
 				<li><a href="http://www.pingpong-labs.com" target="_blank">Visit
 						Site</a></li>
 				<li class="dropdown "><a href="#" class="dropdown-toggle"

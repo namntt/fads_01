@@ -141,7 +141,9 @@
 			<add-attribute value="/assets/css/new.css" />
 		</put-list-attribute>
 	</definition>
-	
+	<definition name="newspost" extends="client-base.definition">
+		<put-attribute name="body" value="/client/news/addnewspost.jsp" />
+	</definition>
 	<definition name="news-detail" extends="client-base.definition">
 		<put-attribute name="body" value="/client/news/viewNew.jsp" />
 		<put-list-attribute name="cssDefault">

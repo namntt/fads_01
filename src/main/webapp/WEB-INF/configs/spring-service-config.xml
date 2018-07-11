@@ -29,10 +29,10 @@
 		<property name="target">
 			<bean class="com.framgia.service.impl.NewsServiceImpl">
 				<property name="newsDAO" ref="newsDAO" />
+				<property name="newsImgDAO" ref="newsImgDAO" />
 			</bean>
 		</property>
 	</bean>
-
 	<bean id="cityService" parent="transactionProxyTemplate">
 		<property name="target">
 			<bean class="com.framgia.service.impl.CityServiceImpl">

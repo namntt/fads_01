@@ -26,6 +26,8 @@
 	<bean id="newsAction" class="com.framgia.action.NewsAction" scope="prototype">
 		<property name="newsService" ref="newsService" />
 		<property name="userFollowNewsService" ref="userFollowNewsService" />
+		<property name="cityService" ref="cityService" />
+		<property name="CategoryService" ref="categoryService" />
 	</bean>
 	
 	<bean id="userFollowNewsAction" class="com.framgia.action.UserFollowNewsAction" scope="prototype">
