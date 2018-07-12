@@ -45,8 +45,8 @@
 						Account <span class="caret"></span>
 				</a>
 					<ul class="dropdown-menu" role="menu">
-						<li>${USER.username}</li>
-						<li><s:a action="logout">
+						<li id="userAccount">${USER.username}</li>
+						<li><s:a action="">
 								<s:text name="users.action.logout" />
 							</s:a></li>
 					</ul></li>

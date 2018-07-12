@@ -48,5 +48,14 @@
 			</bean>
 		</property>
 	</bean>
+	
+	<bean id="commentService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="com.framgia.service.impl.CommentServiceImpl">
+				<property name="commentDAO" ref="commentDAO" />
+			</bean>
+		</property>
+	</bean>
+	
 
 </beans>

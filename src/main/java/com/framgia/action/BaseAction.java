@@ -10,6 +10,7 @@ import com.framgia.model.User;
 import com.framgia.service.CategoryService;
 import com.framgia.service.CityService;
 import com.framgia.service.NewsImageService;
+import com.framgia.service.CommentService;
 import com.framgia.service.NewsService;
 import com.framgia.service.UserFollowNewsService;
 import com.framgia.service.UserService;
@@ -18,7 +19,6 @@ import com.opensymphony.xwork2.ActionSupport;
 import common.UserCustomFile;
 
 public class BaseAction extends ActionSupport implements SessionAware {
-
 	private static final long serialVersionUID = 1L;
 	protected CategoryService categoryService;
 	protected NewsService newsService;
@@ -26,6 +26,7 @@ public class BaseAction extends ActionSupport implements SessionAware {
 	protected UserService userService;
 	protected NewsImageService newsImageService;
 	protected UserFollowNewsService userFollowNewsService;
+	protected CommentService commentService;
 	protected Map<String, Object> sessionAttributes;
 	private User currentUser;
 	private List<File> myFiles;
@@ -110,6 +111,10 @@ public class BaseAction extends ActionSupport implements SessionAware {
 
 	public void setSessionAttributes(Map<String, Object> sessionAttributes) {
 		this.sessionAttributes = sessionAttributes;
+	}
+
+	public void setCommentService(CommentService commentService) {
+		this.commentService = commentService;
 	}
 
 	@Override

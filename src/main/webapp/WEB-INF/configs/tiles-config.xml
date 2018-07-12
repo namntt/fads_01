@@ -35,6 +35,8 @@
 		</put-list-attribute>
 		<put-list-attribute name="jsAdd">
 			<add-attribute value="/assets/js/follow.js" />
+			<add-attribute value="/assets/js/comment.js" />
+			<add-attribute value="/assets/js/shareFacebook.js" />
 		</put-list-attribute>
 	</definition>
 	
@@ -55,6 +57,7 @@
 		<put-list-attribute name="jsAdd">
 			<add-attribute value="/assets/js/custom.js" />
 		</put-list-attribute>
+		
 	</definition>
 
 	<!-- list users -->
@@ -151,9 +154,7 @@
 		</put-list-attribute>
 		<put-list-attribute name="cssAdd">
 			<add-attribute value="/assets/css/new.css" />
-		</put-list-attribute>
-		<put-list-attribute name="jsAdd">
-			<add-attribute value="/assets/js/shareFacebook.js" />
+			<add-attribute value="/assets/css/comment.css" />
 		</put-list-attribute>
 	</definition>
 	

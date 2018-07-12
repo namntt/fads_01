@@ -35,15 +35,15 @@
 			<result name="input">addUser</result>
 			<result name="error">/errors/404.jsp</result>
 		</action>
-		
-		<action name="updatePassword" class="changePassAction" method="updatePassword" >
+
+		<action name="updatePassword" class="changePassAction" method="updatePassword">
 			<result name="success" type="redirect">/index</result>
 			<result name="input">changePass</result>
 		</action>
-		
+
 		<action name="viewsChangePass">
 			<result>changePass</result>
-		</action>	
+		</action>
 	</package>
 
 	<package name="client" namespace="/" extends="json-default">
@@ -68,15 +68,35 @@
 			<result name="success">news-detail</result>
 		</action>
 		<action name="newspost" class="newsAction" method="saveOrUpdateNews">
-			<result name="success"  type="redirect" >/homepage</result>
-			<result name="input" >newspost</result>
+			<result name="success" type="redirect">/homepage</result>
+			<result name="input">newspost</result>
 		</action>
 		<action name="news-follow" class="userFollowNewsAction" method="followOrUnfollowNews">
 			<result name="success" type="json">
 				<param name="ignoreHierarchy">true</param>
 			</result>
 		</action>
-		<action name="favorite-index" class="userFollowNewsAction" method="showMyFavorite">
+
+		<action name="comment-new" class="commentAction" method="newComment">
+			<result name="success" type="json">
+				<param name="includeProperties">
+					comment
+				</param>
+				<param name="ignoreHierarchy">true</param>
+			</result>
+			<result name="error" type="redirect">/news-list</result>
+		</action>
+
+		<action name="news-follow" class="userFollowNewsAction" method="followOrUnfollowNews">
+			<result name="success" type="json">
+				<param name="includeProperties">
+					userFollowNews
+				</param>
+				<param name="ignoreHierarchy">true</param>
+			</result>
+		</action>
+		<action name="favorite-index" class="userFollowNewsAction"
+			method="showMyFavorite">
 			<result name="success">favorite-index</result>
 		</action>
 	</package>

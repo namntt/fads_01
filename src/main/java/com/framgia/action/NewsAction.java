@@ -7,9 +7,9 @@ import org.apache.commons.lang.StringUtils;
 
 import com.framgia.model.Category;
 import com.framgia.model.City;
+import com.framgia.model.Comment;
 import com.framgia.model.News;
 import com.framgia.model.NewsImage;
-import com.framgia.model.User;
 import com.framgia.model.UserFollowNews;
 
 public class NewsAction extends BaseAction {
@@ -19,6 +19,10 @@ public class NewsAction extends BaseAction {
 	private UserFollowNews userFollowNews;
 	private List<City> cities;
 	private List<Category> categories;
+	private List<Comment> comments;
+	private Comment comment;
+	private String description;
+	private Integer newsId;
 
 	public List<City> getCities() {
 		return cities;
@@ -60,11 +64,22 @@ public class NewsAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	public String index() {
+		return SUCCESS;
+	}
+
 	public String showDetailNews() {
-		User user = (User) getSessionAttributes().get("USER");
 		news = newsService.findById(id);
-		userFollowNews = userFollowNewsService.loadByUserIdAndNewsId(user.getId(), id);
-		return "success";
+		userFollowNews = userFollowNewsService.loadByUserIdAndNewsId(getCurrentUser().getId(), id);
+		comments = new ArrayList<Comment>();
+		comments = commentService.loadCommentByNewsId(id);
+		for (int i = 0; i < comments.size(); i++) {
+			if (userService.findById(comments.get(i).getUserAccount().getId()) != null) {
+				comments.get(i).setUserAccount(userService.findById(comments.get(i).getUserAccount().getId()));
+			}
+		}
+		userFollowNews = userFollowNewsService.loadByUserIdAndNewsId(getCurrentUser().getId(), id);
+		return SUCCESS;
 	}
 
 	public News getNews() {
@@ -116,4 +131,37 @@ public class NewsAction extends BaseAction {
 		} catch (NullPointerException ne) {
 		}
 	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public Comment getComment() {
+		return comment;
+	}
+
+	public void setComment(Comment comment) {
+		this.comment = comment;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Integer getNewsId() {
+		return newsId;
+	}
+
+	public void setNewsId(Integer newsId) {
+		this.newsId = newsId;
+	}
+
 }

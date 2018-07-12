@@ -26,7 +26,7 @@ public class CategoryAction extends BaseAction {
 		newsIds = userFollowNewsService.loadQuantityUserFollowNews();
 		newses = new ArrayList<News>();
 		newsIds.forEach(news_id -> newses.add(newsService.findById(news_id)));
-		return "success";
+		return SUCCESS;
 	}
 
 	public String showNews() {
@@ -39,7 +39,10 @@ public class CategoryAction extends BaseAction {
 			searchNew.getFieldsSearch().getCity().setId(cityService.findByName(getChoiceAdress()).getId());
 		}
 		newses = newsService.findNewsByCategoryId(id, 1, searchNew);
-		return "success";
+		for (int i = 0; i < newses.size(); i++) {
+			newses.get(i).setUser(userService.findById(newses.get(i).getUser().getId()));
+		}
+		return SUCCESS;
 	}
 
 	public Category getCategory() {
