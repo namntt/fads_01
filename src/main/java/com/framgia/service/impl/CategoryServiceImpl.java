@@ -15,8 +15,12 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public List<Category> findAll() {
-		LOGGER.info("List category");
-		return getCategoryDAO().findAll();
+		try {
+			return getCategoryDAO().findAll();
+		} catch (Exception e) {
+			LOGGER.info("find all category fail !");
+			return null;
+		}
 	}
 
 	public CategoryDAO getCategoryDAO() {
@@ -26,5 +30,4 @@ public class CategoryServiceImpl implements CategoryService {
 	public void setCategoryDAO(CategoryDAO categoryDAO) {
 		this.categoryDAO = categoryDAO;
 	}
-
 }

@@ -25,19 +25,22 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<User> findAll() {
-		return getUserDAO().findAll();
+		try {
+			return getUserDAO().findAll();
+		} catch (Exception e) {
+			LOGGER.info("find all user fail !");
+			return null;
+		}
 	}
 
 	@Override
 	public User findByUsenameAndPassword(String username, String password) {
-		User user = null;
 		try {
-			user = userDAO.findByUsenameAndPassword(username, password);
-			LOGGER.info("---> find success username and password");
+			return userDAO.findByUsenameAndPassword(username, password);
 		} catch (Exception e) {
 			LOGGER.info("---> Error find username and password");
+			return null;
 		}
-		return user;
 	}
 
 	@Override
@@ -52,17 +55,36 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User saveOrUpdate(User user) {
+	public User addUser(User user) {
 		try {
 			if (user.getCreatedDate() == null) {
 				user.setCreatedDate(new Date());
 			}
-			LOGGER.info("Save user successful");
+			LOGGER.info("add user successful");
 			return getUserDAO().saveOrUpdate(user);
 		} catch (Exception e) {
-			LOGGER.error("Save user fail", e);
+			LOGGER.error("add user fail", e);
 			throw e;
 		}
 	}
 
+	@Override
+	public User updateUser(User user) {
+		try {
+			return getUserDAO().saveOrUpdate(user);
+		} catch (Exception e) {
+			LOGGER.error("Update user fail", e);
+			throw e;
+		}
+	}
+
+	@Override
+	public User findByUsername(String username) {
+		try {
+			return userDAO.findBy("username", username);
+		} catch (Exception e) {
+			LOGGER.error("Khong tim thay user");
+			return null;
+		}
+	}
 }

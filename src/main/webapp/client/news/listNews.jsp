@@ -45,7 +45,6 @@
 								<s:date name="startDate" format="dd/MM/yyyy" />
 							</div>
 						</td>
-							
 					</tr>
 				</tbody>
 

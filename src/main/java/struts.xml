@@ -5,6 +5,7 @@
 
 <struts>
 	<!-- I18n config -->
+	<constant name="struts.devMode" value="true" />
 	<constant name="struts.custom.i18n.resources" value="global" />
 	<constant name="struts.convention.result.path" value="/"></constant>
 	<constant name="struts.ui.theme" value="simple" />
@@ -15,23 +16,33 @@
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" default="true" />
 		</result-types>
-
 		<action name="index" class="userAction" method="index">
 			<result name="success">index</result>
+			<result name="error">/errors/404.jsp</result>
 		</action>
 
 		<action name="detail" class="userAction" method="detail">
 			<result name="success">detail</result>
+			<result name="error">/errors/404.jsp</result>
 		</action>
 
 		<action name="newUser" class="userAction" method="newUser">
 			<result name="success">addUser</result>
 		</action>
 
-		<action name="saveOrUpdateUser" class="userAction" method="saveOrUpdateUser">
+		<action name="addUser" class="userAction" method="saveOrUpdateUser">
 			<result name="success" type="redirect">/index</result>
 			<result name="input">addUser</result>
 		</action>
+		
+		<action name="updatePassword" class="changePassAction" method="updatePassword" >
+			<result name="success" type="redirect">/index</result>
+			<result name="input">changePass</result>
+		</action>
+		
+		<action name="viewsChangePass">
+			<result>changePass</result>
+		</action>	
 	</package>
 
 	<package name="client" namespace="/" extends="json-default">
@@ -42,6 +53,7 @@
 
 		<action name="homepage" class="categoryAction" method="index">
 			<result name="success">home</result>
+			<result name="error">/errors/404.jsp</result>
 		</action>
 
 		<action name="news-list" class="categoryAction" method="showNews">
@@ -65,6 +77,10 @@
 	</package>
 
 	<package name="user" namespace="/" extends="struts-default">
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" default="true" />
+		</result-types>
 		<interceptors>
 			<interceptor name="authentication"
 				class="com.framgia.interceptors.AuthenticationInterceptor"></interceptor>
@@ -76,7 +92,7 @@
 		<default-interceptor-ref name="authStack"></default-interceptor-ref>
 		<action name="home">
 			<interceptor-ref name="defaultStack"></interceptor-ref>
-			<result>/login.jsp</result>
+			<result>loginViews</result>
 		</action>
 		<action name="logout" class="loginAction" method="logout">
 			<result name="success">/login.jsp</result>
@@ -87,7 +103,7 @@
 				<param name="actionName">homepage</param>
 				<param name="namespace">/</param>
 			</result>
-			<result name="input">/login.jsp</result>
+			<result name="input">loginViews</result>
 		</action>
 	</package>
 </struts>

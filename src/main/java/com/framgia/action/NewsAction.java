@@ -17,7 +17,6 @@ public class NewsAction extends BaseAction {
 		User user = (User) getSessionAttributes().get("USER");
 		news = newsService.findById(id);
 		userFollowNews = userFollowNewsService.getByUserIdAndNewsId(user.getId(), id);
-
 		return "success";
 	}
 
@@ -44,5 +43,4 @@ public class NewsAction extends BaseAction {
 	public void setUserFollowNews(UserFollowNews userFollowNews) {
 		this.userFollowNews = userFollowNews;
 	}
-
 }
