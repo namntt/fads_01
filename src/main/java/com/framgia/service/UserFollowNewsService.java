@@ -7,9 +7,11 @@ import com.framgia.model.UserFollowNews;
 public interface UserFollowNewsService {
 	UserFollowNews createFollow(UserFollowNews userFollowNews);
 
-	List<UserFollowNews> getAll();
+	List<UserFollowNews> loadAll();
 
-	UserFollowNews getByUserIdAndNewsId(Integer userId, Integer newsId);
+	UserFollowNews loadByUserIdAndNewsId(Integer userId, Integer newsId);
 
 	void removeUserFollowNews(UserFollowNews userFollowNews);
+	
+	List<Integer> loadQuantityUserFollowNews();
 }
