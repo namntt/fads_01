@@ -150,6 +150,9 @@
 		<put-list-attribute name="cssAdd">
 			<add-attribute value="/assets/css/new.css" />
 		</put-list-attribute>
+		<put-list-attribute name="jsAdd">
+			<add-attribute value="/assets/js/shareFacebook.js" />
+		</put-list-attribute>
 	</definition>
 	
 	<definition name="favorite-index" extends="client-base.definition">
