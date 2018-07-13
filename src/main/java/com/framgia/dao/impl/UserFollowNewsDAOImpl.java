@@ -3,6 +3,7 @@ package com.framgia.dao.impl;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Expression;
@@ -44,6 +45,18 @@ public class UserFollowNewsDAOImpl extends GenericDAOAbstract<UserFollowNews, In
 		TypedQuery<Integer> typedQuery = getSession().createQuery(select);
 		typedQuery.setMaxResults(5);
 		return typedQuery.getResultList();
+	}
+
+	public List<Integer> findAllByUserId(Integer userId) {
+		CriteriaBuilder builder = getSession().getCriteriaBuilder();
+		CriteriaQuery<Integer> cr = builder.createQuery(Integer.class);
+		Root<UserFollowNews> root = cr.from(UserFollowNews.class);
+		Join<UserFollowNews, User> join_user = root.join("userAccount");
+		Join<UserFollowNews, News> join_news = root.join("news");
+		if (userId != null) {
+			cr.where(builder.and(builder.equal(join_user.get("id"), userId)));
+		}
+		return getSession().createQuery(cr.select(join_news.get("id"))).getResultList();
 	}
 
 }

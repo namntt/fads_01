@@ -12,6 +12,9 @@ public interface UserFollowNewsService {
 	UserFollowNews loadByUserIdAndNewsId(Integer userId, Integer newsId);
 
 	void removeUserFollowNews(UserFollowNews userFollowNews);
-	
+
 	List<Integer> loadQuantityUserFollowNews();
+
+	List<Integer> loadFavoriteNewses(Integer userId);
+
 }

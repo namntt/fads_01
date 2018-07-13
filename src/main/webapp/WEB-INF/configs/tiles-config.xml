@@ -151,4 +151,8 @@
 			<add-attribute value="/assets/css/new.css" />
 		</put-list-attribute>
 	</definition>
+	
+	<definition name="favorite-index" extends="client-base.definition">
+		<put-attribute name="body" value="/client/news/favoriteNews.jsp" />
+	</definition>
 </tiles-definitions>

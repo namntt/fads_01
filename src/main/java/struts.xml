@@ -74,6 +74,10 @@
 			</result>
 		</action>
 		
+		<action name="favorite-index" class="userFollowNewsAction" method="showMyFavorite">
+			<result name="success">favorite-index</result>
+		</action>
+		
 	</package>
 
 	<package name="user" namespace="/" extends="struts-default">
