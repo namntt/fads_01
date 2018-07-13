@@ -55,9 +55,17 @@ public class UserFollowNewsServiceImpl implements UserFollowNewsService {
 
 	@Override
 	public List<Integer> loadQuantityUserFollowNews() {
-		try{
+		try {
 			return getUserFollowNewsDAO().findQuantityUserFollowNews();
-		}catch (Exception e) {
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	public List<Integer> loadFavoriteNewses(Integer userId) {
+		try {
+			return getUserFollowNewsDAO().findAllByUserId(userId);
+		} catch (Exception e) {
 			return null;
 		}
 	}

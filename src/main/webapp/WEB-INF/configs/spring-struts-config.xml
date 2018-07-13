@@ -30,6 +30,7 @@
 	
 	<bean id="userFollowNewsAction" class="com.framgia.action.UserFollowNewsAction" scope="prototype">
 		<property name="userFollowNewsService" ref="userFollowNewsService" />
+		<property name="newsService" ref="newsService" />
 	</bean>
 	
 </beans>

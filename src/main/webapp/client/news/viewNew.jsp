@@ -24,22 +24,12 @@
 	</s:form>
 	<s:if test= "%{userFollowNews!=null}" >
 	<button class="follow btn btn-info">
-			<span class="msg-follow">Unfollow</span>
+			<span class="msg-follow">Favorited</span>
 	</button>
 	</s:if>
 	<s:if test= "%{userFollowNews==null}" >
 	<button class="follow btn btn-info">			
-			<span class="msg-follow">Follow</span>
+			<span class="msg-follow">Favorite</span>
 	</button>
 	</s:if>
-</div>
-<div class="row">
-	<h2><s:property value="news.tittle"/></h2>
-</div>
-
-<div class="row">
-	<s:property value="news.content"/>
-</div>
-<div class="row">
-	<s:property value="news.price"/>
 </div>

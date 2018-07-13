@@ -8,10 +8,10 @@ $(document).ready(function() {
 			data : "newsId=" + newsId,
 			dataType : 'json',
 			success : function(data) {
-				if (msg == "Follow") {
-					$('.msg-follow').html('Unfollow');
+				if (msg == "Favorite") {
+					$('.msg-follow').html('Favorited');
 				} else {
-					$('.msg-follow').html('Follow');
+					$('.msg-follow').html('Favorite');
 				}
 			},
 			error : function(data) {

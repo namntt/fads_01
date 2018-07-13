@@ -29,6 +29,7 @@
 				</button>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
+				<li><s:a action="favorite-index"><s:text name="client.action.favorite" /></s:a></li>
 				<li><a href="http://www.pingpong-labs.com" target="_blank">Visit
 						Site</a></li>
 				<li class="dropdown "><a href="#" class="dropdown-toggle"
