@@ -43,10 +43,10 @@ public class CustomSessionAction extends BaseAction {
 	}
 
 	private boolean isAdmin(List<String> roles) {
-		return roles.contains(Role.ROLE_ADMIN);
+		return roles.contains(Role.ROLE_ADMIN.toString());
 	}
 
 	private boolean isUser(List<String> roles) {
-		return roles.contains(Role.ROLE_USER);
+		return roles.contains(Role.ROLE_USER.toString());
 	}
 }
