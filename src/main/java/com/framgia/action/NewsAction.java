@@ -2,9 +2,7 @@ package com.framgia.action;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.commons.lang.StringUtils;
-
 import com.framgia.model.Category;
 import com.framgia.model.City;
 import com.framgia.model.Comment;
@@ -23,6 +21,9 @@ public class NewsAction extends BaseAction {
 	private Comment comment;
 	private String description;
 	private Integer newsId;
+	private List<String> tittles;
+	private List<News> newses;
+	private String keyword;
 
 	public List<City> getCities() {
 		return cities;
@@ -68,6 +69,13 @@ public class NewsAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	public String showTittle() {
+		tittles = new ArrayList<String>();
+		newses = newsService.loadAll();
+		newses.forEach(news -> tittles.add(news.getTittle()));
+		return SUCCESS;
+	}
+
 	public String showDetailNews() {
 		news = newsService.findById(id);
 		userFollowNews = userFollowNewsService.loadByUserIdAndNewsId(getCurrentUser().getId(), id);
@@ -78,7 +86,6 @@ public class NewsAction extends BaseAction {
 				comments.get(i).setUserAccount(userService.findById(comments.get(i).getUserAccount().getId()));
 			}
 		}
-		userFollowNews = userFollowNewsService.loadByUserIdAndNewsId(getCurrentUser().getId(), id);
 		return SUCCESS;
 	}
 
@@ -162,6 +169,30 @@ public class NewsAction extends BaseAction {
 
 	public void setNewsId(Integer newsId) {
 		this.newsId = newsId;
+	}
+
+	public List<String> getTittles() {
+		return tittles;
+	}
+
+	public void setTittles(List<String> tittles) {
+		this.tittles = tittles;
+	}
+
+	public List<News> getNewses() {
+		return newses;
+	}
+
+	public void setNewses(List<News> newses) {
+		this.newses = newses;
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
 
 }

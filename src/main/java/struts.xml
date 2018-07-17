@@ -67,6 +67,7 @@
 		<action name="news-detail" class="newsAction" method="showDetailNews">
 			<result name="success">news-detail</result>
 		</action>
+		
 		<action name="newspost" class="newsAction" method="saveOrUpdateNews">
 			<result name="success" type="redirect">/homepage</result>
 			<result name="input">newspost</result>
@@ -86,7 +87,13 @@
 			</result>
 			<result name="error" type="redirect">/news-list</result>
 		</action>
-
+		
+		<action name="news-tittle" class="newsAction" method="showTittle">
+			<result name="success" type="json">
+				<param name="excludeProperties">newses,news,id,userFollowNews,keyword</param>
+		</result>
+		</action>
+		
 		<action name="news-follow" class="userFollowNewsAction" method="followOrUnfollowNews">
 			<result name="success" type="json">
 				<param name="includeProperties">
