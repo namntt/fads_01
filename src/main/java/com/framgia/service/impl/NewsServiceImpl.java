@@ -1,21 +1,34 @@
 package com.framgia.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.framgia.dao.NewsDAO;
+import com.framgia.dao.NewsImageDAO;
 import com.framgia.model.News;
+import com.framgia.model.NewsImage;
 import com.framgia.search.Search;
 import com.framgia.service.NewsService;
 
 public class NewsServiceImpl implements NewsService {
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 	private NewsDAO newsDAO;
+	private NewsImageDAO newsImgDAO;
 
 	public NewsDAO getNewsDAO() {
 		return newsDAO;
+	}
+
+	public NewsImageDAO getNewsImgDAO() {
+		return newsImgDAO;
+	}
+
+	public void setNewsImgDAO(NewsImageDAO newsImgDAO) {
+		this.newsImgDAO = newsImgDAO;
 	}
 
 	public void setNewsDAO(NewsDAO newsDAO) {
@@ -41,4 +54,30 @@ public class NewsServiceImpl implements NewsService {
 			return null;
 		}
 	}
+
+	@Override
+	public News saveOrUpdate(News news, List<NewsImage> news_images) {
+		try {
+			if (news.getCreateDate() == null) {
+				news.setCreateDate(new Date());
+			}
+			news = newsDAO.saveOrUpdate(news);
+			if (news != null) {
+				for (NewsImage news_img : news_images) {
+					if (news_img == null || StringUtils.isEmpty(news_img.getName()))
+						break;
+					news_img.setNews(news);
+					newsImgDAO.saveOrUpdate(news_img);
+				}
+				LOGGER.info("Save News successful");
+				return news;
+			} else
+				LOGGER.error("Cann't create News object");
+			return null;
+		} catch (Exception e) {
+			LOGGER.error("Oop error has exception", e);
+			throw e;
+		}
+	}
+
 }

@@ -33,6 +33,7 @@
 		<action name="addUser" class="userAction" method="saveOrUpdateUser">
 			<result name="success" type="redirect">/index</result>
 			<result name="input">addUser</result>
+			<result name="error">/errors/404.jsp</result>
 		</action>
 		
 		<action name="updatePassword" class="changePassAction" method="updatePassword" >
@@ -59,25 +60,25 @@
 		<action name="news-list" class="categoryAction" method="showNews">
 			<result name="success">news-list</result>
 		</action>
-		
+		<action name="postnews" class="newsAction" method="addNews">
+			<result name="success">newspost</result>
+		</action>
+
 		<action name="news-detail" class="newsAction" method="showDetailNews">
 			<result name="success">news-detail</result>
 		</action>
-		
+		<action name="newspost" class="newsAction" method="saveOrUpdateNews">
+			<result name="success"  type="redirect" >/homepage</result>
+			<result name="input" >newspost</result>
+		</action>
 		<action name="news-follow" class="userFollowNewsAction" method="followOrUnfollowNews">
 			<result name="success" type="json">
-			  <param name="includeProperties">
-			    userFollowNews,
-			    userFollowNews.id
-			  </param>
-			  <param name="ignoreHierarchy">true</param>
+				<param name="ignoreHierarchy">true</param>
 			</result>
 		</action>
-		
 		<action name="favorite-index" class="userFollowNewsAction" method="showMyFavorite">
 			<result name="success">favorite-index</result>
 		</action>
-		
 	</package>
 
 	<package name="user" namespace="/" extends="struts-default">
