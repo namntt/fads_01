@@ -30,8 +30,6 @@
 		</property>
 		<property name="mappingResources">
 			<list>
-				<value>com/framgia/model/hbm/Role.hbm.xml</value>
-				<value>com/framgia/model/hbm/UserRole.hbm.xml</value>
 				<value>com/framgia/model/hbm/City.hbm.xml</value>
 				<value>com/framgia/model/hbm/Category.hbm.xml</value>
 				<value>com/framgia/model/hbm/User.hbm.xml</value>
