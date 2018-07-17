@@ -25,17 +25,20 @@
 			<add-attribute value="/assets/css/bootstrap.min.css" />
 		</put-list-attribute>
 		<put-list-attribute name="jsDefault">
-			<add-attribute value="/assets/js/jquery-3.3.1.min.js" />
+			<add-attribute value="/assets/js/jquery-1.8.3.js" />
 			<add-attribute value="/assets/js/bootstrap.min.js" />
 		</put-list-attribute>
 		<put-list-attribute name="cssAdd">
 			<add-attribute value="/assets/css/new.css" />
 			<add-attribute value="/assets/css/follow.css" />
 			<add-attribute value="/assets/css/categories.css" />
+			<add-attribute value="/assets/css/jquery-ui.css" />
 		</put-list-attribute>
 		<put-list-attribute name="jsAdd">
 			<add-attribute value="/assets/js/follow.js" />
 			<add-attribute value="/assets/js/comment.js" />
+			<add-attribute value="/assets/js/jquery-ui.js" />
+			<add-attribute value="/assets/js/autocomplete.js" />
 			<add-attribute value="/assets/js/shareFacebook.js" />
 		</put-list-attribute>
 	</definition>

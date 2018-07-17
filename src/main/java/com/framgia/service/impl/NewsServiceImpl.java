@@ -80,4 +80,13 @@ public class NewsServiceImpl implements NewsService {
 		}
 	}
 
+	public List<News> loadAll() {
+		try {
+			LOGGER.info("Find all news");
+			return getNewsDAO().findAll();
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
 }
