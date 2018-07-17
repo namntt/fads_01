@@ -1,4 +1,4 @@
-<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@include file="/includedTags.jsp" %>
 <div class="sidebar">
 	<div class="row">
 		<!-- uncomment code for absolute positioning tweek see top comment in css -->

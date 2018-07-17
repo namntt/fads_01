@@ -1,5 +1,4 @@
-<%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@include file="/includedTags.jsp" %>
 <div class="row">
 	<div class="form-inline col-md-5">
 		<form action="list" method="get">

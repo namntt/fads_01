@@ -1,4 +1,4 @@
-<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@include file="/includedTags.jsp" %>
 <div class="col-md-9">
 	<h2>
 		<s:text name="client.list.category" />

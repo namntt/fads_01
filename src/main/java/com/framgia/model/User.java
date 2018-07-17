@@ -14,10 +14,11 @@ public class User implements Serializable {
 	private Date birthday;
 	private String fullname;
 	private Date createdDate;
+	private String role;
+
 	private List<Comment> comments;
 	private List<UserFollowNews> userFollowNewses;
 	private List<News> newses;
-	private String role;
 
 	public User() {
 	}

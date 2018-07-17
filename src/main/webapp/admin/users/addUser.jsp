@@ -1,4 +1,4 @@
-<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@include file="/includedTags.jsp" %>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 <div class="row">
 	<s:form action="addUser" method="post" id="formUser"

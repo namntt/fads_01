@@ -1,0 +1,28 @@
+.m-t-50 {
+	margin-top: 50px;
+}
+
+.p-t-30 {
+	padding-top: 30px;
+}
+
+.fogot_password {
+	float: right;
+	font-size: 80%;
+	position: relative;
+	top: -10px;
+}
+
+.m-b-25 {
+	margin-bottom: 25px;
+}
+
+.m-t-10 {
+	margin-top: 10px;
+}
+
+.s-link-register {
+	border-top: 1px solid #888;
+	padding-top: 15px;
+	font-size: 85%;
+}

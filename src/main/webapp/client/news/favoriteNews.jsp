@@ -1,4 +1,4 @@
-<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@include file="/includedTags.jsp" %>
 <s:iterator value="newses">
 	<s:url action="news-detail" var="newsDetail">
 		<s:param name="id">${id}</s:param>

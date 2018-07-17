@@ -5,12 +5,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.framgia.model.User;
 import com.framgia.service.CategoryService;
 import com.framgia.service.CityService;
-import com.framgia.service.NewsImageService;
 import com.framgia.service.CommentService;
+import com.framgia.service.NewsImageService;
 import com.framgia.service.NewsService;
 import com.framgia.service.UserFollowNewsService;
 import com.framgia.service.UserService;
@@ -32,6 +33,13 @@ public class BaseAction extends ActionSupport implements SessionAware {
 	private List<File> myFiles;
 	private List<String> myFilesFileName;
 	private List<String> myFilesContentType;
+
+	public void setCurrentUser(User currentUser) {
+		try {
+			currentUser = userService.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
+		} catch (Exception e) {
+		}
+	}
 
 	public List<String> getMyFilesContentType() {
 		return myFilesContentType;
@@ -73,7 +81,6 @@ public class BaseAction extends ActionSupport implements SessionAware {
 	}
 
 	public User getCurrentUser() {
-		this.currentUser = (User) getSessionAttributes().get("USER");
 		return currentUser;
 	}
 

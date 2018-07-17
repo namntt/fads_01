@@ -1,4 +1,4 @@
-<%@ taglib uri="/struts-tags" prefix="s"%>
+<%@include file="/includedTags.jsp" %>
 <h3>Change Password</h3>
 	<s:form action="updatePassword" namespace="/">
 		<s:text name="user.currentPassword"></s:text>

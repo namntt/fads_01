@@ -1,4 +1,4 @@
-<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@include file="/includedTags.jsp" %>
 <div class="row">
 	<div class="row" id="search">
 		<s:form id="search-form" action="news-list" method="POST" enctype="multipart/form-data">
