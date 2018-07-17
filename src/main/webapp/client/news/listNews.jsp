@@ -43,11 +43,11 @@
 							</div>
 							<div class="time">
 								<s:date name="startDate" format="dd/MM/yyyy" />
+								<span><s:property value="#news.user.username"/></span>
 							</div>
 						</td>
 					</tr>
 				</tbody>
-
 			</s:iterator>
 		</table>
 	</div>

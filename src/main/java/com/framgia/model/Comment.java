@@ -3,7 +3,7 @@ package com.framgia.model;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Comment implements Serializable{
+public class Comment implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Integer id;
@@ -14,6 +14,12 @@ public class Comment implements Serializable{
 	private Integer parentId;
 
 	public Comment() {
+	}
+
+	public Comment(String description, Integer parentId) {
+		this.description = description;
+		this.parentId = parentId;
+		this.createdDate = new Date();
 	}
 
 	public Comment(News news, User userAccount, Date createdDate, String description, Integer parentId) {
