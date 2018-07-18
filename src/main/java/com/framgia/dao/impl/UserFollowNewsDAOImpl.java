@@ -28,7 +28,7 @@ public class UserFollowNewsDAOImpl extends GenericDAOAbstract<UserFollowNews, In
 			cr.where(builder.and(builder.equal(join_user.get("id"), userId),
 					builder.equal(join_news.get("id"), newsId)));
 		}
-		return getSession().createQuery(cr.select(root)).uniqueResult();
+		return getSession().createQuery(cr.select(root)).getSingleResult();
 	}
 
 	@Override

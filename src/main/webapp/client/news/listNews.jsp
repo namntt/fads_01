@@ -1,7 +1,8 @@
 <%@include file="/includedTags.jsp" %>
 <div class="row">
 	<div class="row" id="search">
-		<s:form id="search-form" action="news-list" method="POST" enctype="multipart/form-data">
+		<c:url var="newsList" value="/news-list"/>
+		<form id="search-form" action="${newsList}?${_csrf.parameterName}=${_csrf.token}" method="POST" enctype="multipart/form-data">
 			<s:textfield name="id" type="hidden"></s:textfield>
 			<div class="row">
 				<div class="form-group col-xs-9">
@@ -16,7 +17,7 @@
 					<s:select list="cityNames" class="form-control" name="choiceAdress"></s:select>
 				</div>
 			</div>
-		</s:form>
+		</form>
 	</div>
 </div>
 <div class="row">
@@ -30,6 +31,7 @@
 			<s:iterator value="newses" var="news">
 				<tbody>
 					<tr>
+						<td></td>
 						<td>
 							<s:url action="news-detail" var="newsDetail">
 								<s:param name="id">${id}</s:param>
@@ -38,11 +40,13 @@
 								<s:a href="%{newsDetail}">${tittle}</s:a>
 							</div>
 							<div class="price">
-								${price}vnd
+								${price}$
 							</div>
 							<div class="time">
-								<s:date name="startDate" format="dd/MM/yyyy" />
-								<span><s:property value="#news.user.username"/></span>
+								Post date:<s:date name="startDate" format="dd/MM/yyyy" />
+							</div>
+							<div class="postBy">
+								Post by:<s:property value="#news.user.username"/>
 							</div>
 						</td>
 					</tr>

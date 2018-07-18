@@ -25,22 +25,6 @@ public class NewsAction extends BaseAction {
 	private List<News> newses;
 	private String keyword;
 
-	public List<City> getCities() {
-		return cities;
-	}
-
-	public void setCities(List<City> cities) {
-		this.cities = cities;
-	}
-
-	public List<Category> getCategories() {
-		return categories;
-	}
-
-	public void setCategories(List<Category> categories) {
-		this.categories = categories;
-	}
-
 	public String saveOrUpdateNews() {
 		news.setStatus(1);
 		if (!saveFiles())
@@ -72,11 +56,14 @@ public class NewsAction extends BaseAction {
 	public String showTittle() {
 		tittles = new ArrayList<String>();
 		newses = newsService.loadAll();
-		newses.forEach(news -> tittles.add(news.getTittle()));
+		newses.forEach(news -> tittles.add(news.getTittle().toLowerCase()));
 		return SUCCESS;
 	}
 
 	public String showDetailNews() {
+
+		if (getCurrentUser() == null)
+			return INPUT;
 		news = newsService.findById(id);
 		userFollowNews = userFollowNewsService.loadByUserIdAndNewsId(getCurrentUser().getId(), id);
 		comments = new ArrayList<Comment>();
@@ -193,6 +180,22 @@ public class NewsAction extends BaseAction {
 
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
+	}
+
+	public List<City> getCities() {
+		return cities;
+	}
+
+	public void setCities(List<City> cities) {
+		this.cities = cities;
+	}
+
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
 	}
 
 }

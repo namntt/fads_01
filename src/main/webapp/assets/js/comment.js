@@ -1,4 +1,11 @@
 $(document).ready(function() {
+	var token = $("meta[name='_csrf']").attr("content");
+	var header = $("meta[name='_csrf_header']").attr("content");
+	$.ajaxSetup({
+	    beforeSend : function(xhr) {
+	        xhr.setRequestHeader(header, token);
+	    }
+	});
 	$('#commentNews').click(function() {
 		var description=$('#description').val();
 		var newsId=$('#newsId').val();

@@ -9,6 +9,8 @@
 <html lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="_csrf" content="${_csrf.token}" />
+<meta name="_csrf_header" content="${_csrf.headerName}" />
 <%-- Default CSS --%>
 <tilesx:useAttribute id="cssList" name="cssDefault" classname="java.util.List" />
 <c:forEach var="item" items="${cssList}">

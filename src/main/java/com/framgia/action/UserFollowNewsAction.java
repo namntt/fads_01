@@ -17,6 +17,10 @@ public class UserFollowNewsAction extends BaseAction {
 	private List<Integer> newsIds;
 
 	public String followOrUnfollowNews() {
+		
+		if (getCurrentUser() == null)
+			return INPUT;
+		
 		userFollowNews = userFollowNewsService.loadByUserIdAndNewsId(getCurrentUser().getId(), newsId);
 		if (userFollowNews != null) {
 			userFollowNewsService.removeUserFollowNews(userFollowNews);
@@ -28,6 +32,9 @@ public class UserFollowNewsAction extends BaseAction {
 	}
 
 	public String showMyFavorite() {
+		if (getCurrentUser() == null) {
+			return INPUT;
+		}
 		newsIds = userFollowNewsService.loadFavoriteNewses(getCurrentUser().getId());
 		newses = new ArrayList<>();
 		newsIds.forEach(news_ids -> newses.add(newsService.findById(news_ids)));

@@ -26,8 +26,10 @@
 			<add-attribute value="/assets/css/bootstrap.min.css" />
 		</put-list-attribute>
 		<put-list-attribute name="jsDefault">
-			<add-attribute value="/assets/js/jquery-1.8.3.js" />
-			<add-attribute value="/assets/js/bootstrap.min.js" />
+			<add-attribute value="/assets/js/jquery-1.11.1.min.js" />
+			<add-attribute value="/assets/js/jquery-ui.js" />
+			<add-attribute value="/assets/js/fix-conflic.js" />
+			<add-attribute value="/assets/js/bootstrap.js" />
 		</put-list-attribute>
 		<put-list-attribute name="cssAdd">
 			<add-attribute value="/assets/css/new.css" />
@@ -36,13 +38,14 @@
 			<add-attribute value="/assets/css/jquery-ui.css" />
 			<add-attribute value="/assets/css/home.css" />
 			<add-attribute value="/assets/css/viewNews.css" />
+			<add-attribute value="/assets/css/slider.css" />
 		</put-list-attribute>
 		<put-list-attribute name="jsAdd">
 			<add-attribute value="/assets/js/follow.js" />
 			<add-attribute value="/assets/js/comment.js" />
-			<add-attribute value="/assets/js/jquery-ui.js" />
 			<add-attribute value="/assets/js/autocomplete.js" />
 			<add-attribute value="/assets/js/shareFacebook.js" />
+			<add-attribute value="/assets/js/slider.js" />
 		</put-list-attribute>
 	</definition>
 
