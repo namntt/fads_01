@@ -31,7 +31,7 @@
 		<action name="welcome" class="com.framgia.action.CustomSessionAction">
 			<result name="SUCCESS_ADMIN" type="redirect">/admin/index</result>
 			<result name="SUCCESS_USER" type="tiles">home</result>
-			<result name="Acess_Denied" type="tiles">/errors/accessDenied.jsp
+			<result name="Acess_Denied" type="tiles">accessDenied
 			</result>
 		</action>
 

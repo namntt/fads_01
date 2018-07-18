@@ -6,7 +6,8 @@
 	<!-- Base Definition -->
 	<definition name="base.definition" template="/admin/layouts/base-layout.jsp">
 		<put-attribute name="title" value="" />
-		<put-attribute name="jsDefault" value="{'/assets/js/jquery-1.11.1.min.js','/assets/js/bootstrap.min.js'}" />
+		<put-attribute name="jsDefault"
+			value="{'/assets/js/jquery-1.11.1.min.js','/assets/js/bootstrap.min.js'}" />
 		<put-attribute name="cssDefault" value="" />
 		<put-attribute name="header" value="/admin/layouts/header.jsp" />
 		<put-attribute name="menu" value="/admin/layouts/menu.jsp" />
@@ -16,7 +17,7 @@
 		<put-attribute name="cssAdd" value="" />
 		<put-attribute name="footer" value="/admin/layouts/footer.jsp" />
 	</definition>
-	
+
 	<definition name="client-base.definition" template="/client/layouts/base-layout.jsp">
 		<put-attribute name="header" value="/client/layouts/header.jsp" />
 		<put-attribute name="menu" value="/client/layouts/menu.jsp" />
@@ -42,7 +43,11 @@
 			<add-attribute value="/assets/js/shareFacebook.js" />
 		</put-list-attribute>
 	</definition>
-	
+
+	<!-- errors -->
+	<definition name="accessDenied" template="/errors/accessDenied.jsp" />
+	<definition name="errorPage" template="/errors/404.jsp" />
+		
 	<!-- Login -->
 	<definition name="login-page" template="/login.jsp">
 		<put-attribute name="title" value="Login" />
@@ -61,7 +66,7 @@
 		<put-list-attribute name="jsAdd">
 			<add-attribute value="/assets/js/custom.js" />
 		</put-list-attribute>
-		
+
 	</definition>
 
 	<!-- list users -->
@@ -79,7 +84,7 @@
 			<add-attribute value="/assets/js/custom.js" />
 		</put-list-attribute>
 	</definition>
-	
+
 	<definition name="detail" extends="base.definition">
 		<put-attribute name="title" value="List" />
 		<put-attribute name="screenname" value="List User" />
@@ -94,7 +99,7 @@
 			<add-attribute value="/assets/js/custom.js" />
 		</put-list-attribute>
 	</definition>
-	
+
 	<definition name="changePass" extends="base.definition">
 		<put-attribute name="title" value="Change Password" />
 		<put-attribute name="screenname" value="Change Password" />
@@ -113,7 +118,7 @@
 			<add-attribute value="/assets/js/custom.js" />
 		</put-list-attribute>
 	</definition>
-	
+
 	<definition name="addUser" extends="base.definition">
 		<put-attribute name="title" value="List" />
 		<put-attribute name="screenname" value="List User" />
@@ -128,7 +133,7 @@
 			<add-attribute value="/assets/js/custom.js" />
 		</put-list-attribute>
 	</definition>
-	
+
 	<definition name="home" extends="client-base.definition">
 		<put-attribute name="body" value="/client/category/listCategory.jsp" />
 		<put-list-attribute name="cssDefault">
@@ -138,7 +143,7 @@
 			<add-attribute value="/assets/css/categories.css" />
 		</put-list-attribute>
 	</definition>
-	
+
 	<definition name="news-list" extends="client-base.definition">
 		<put-attribute name="body" value="/client/news/listNews.jsp" />
 		<put-list-attribute name="cssDefault">
@@ -161,7 +166,7 @@
 			<add-attribute value="/assets/css/comment.css" />
 		</put-list-attribute>
 	</definition>
-	
+
 	<definition name="favorite-index" extends="client-base.definition">
 		<put-attribute name="body" value="/client/news/favoriteNews.jsp" />
 	</definition>
