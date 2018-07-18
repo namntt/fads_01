@@ -1,4 +1,4 @@
-<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@include file="/includedTags.jsp" %>
 <div class="panel panel-info">
 	<div class="panel-heading">
 		<h3 class="panel-title">

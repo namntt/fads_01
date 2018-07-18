@@ -17,6 +17,14 @@
 		</property>
 	</bean>
 
+	<bean id="userDetailsService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="com.framgia.security.CustomUserDetailsService">
+				<property name="userDAO" ref="userDAO" />
+			</bean>
+		</property>
+	</bean>
+
 	<bean id="categoryService" parent="transactionProxyTemplate">
 		<property name="target">
 			<bean class="com.framgia.service.impl.CategoryServiceImpl">

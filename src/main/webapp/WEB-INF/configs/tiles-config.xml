@@ -44,7 +44,7 @@
 	</definition>
 	
 	<!-- Login -->
-	<definition name="loginViews" template="/login.jsp">
+	<definition name="login-page" template="/login.jsp">
 		<put-attribute name="title" value="Login" />
 		<put-attribute name="jsDefault" value="" />
 		<put-list-attribute name="cssDefault">
@@ -52,6 +52,7 @@
 		</put-list-attribute>
 		<put-list-attribute name="cssAdd">
 			<add-attribute value="/assets/css/custom.css" />
+			<add-attribute value="/assets/css/style-login.css" />
 		</put-list-attribute>
 		<put-list-attribute name="jsDefault">
 			<add-attribute value="/assets/js/jquery-1.11.1.min.js" />

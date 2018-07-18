@@ -1,4 +1,5 @@
-<%@ taglib uri="/struts-tags" prefix="s"%>
+<%@include file="/includedTags.jsp"%>
+
 <nav class="navbar navbar-default navbar-static-top">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -45,10 +46,14 @@
 						Account <span class="caret"></span>
 				</a>
 					<ul class="dropdown-menu" role="menu">
-						<li id="userAccount">${USER.username}</li>
-						<li><s:a action="">
-								<s:text name="users.action.logout" />
-							</s:a></li>
+						<li>${USER.username}</li>
+						<li><c:url var="logoutUrl" value="/logout" />
+							<form action="${logoutUrl}" id="logout" method="post">
+								<input type="hidden" name="${_csrf.parameterName}"
+									value="${_csrf.token}" />
+							</form> <a href="#"
+							onclick="document.getElementById('logout').submit();"><s:text
+									name="users.action.logout" /></a></li>
 					</ul></li>
 			</ul>
 		</div>

@@ -4,7 +4,7 @@
 	<class name="NewsImage" table="news_image">
 		<id name="id" type="java.lang.Integer">
 			<column name="id" />
-			<generator class="increment" />
+			<generator class="identity" />
 		</id>
 		<many-to-one class="News" fetch="select" name="news">
 			<column name="news_id" />
