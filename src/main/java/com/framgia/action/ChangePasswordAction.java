@@ -5,6 +5,7 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.framgia.model.User;
 import com.opensymphony.xwork2.ActionContext;
@@ -17,6 +18,7 @@ public class ChangePasswordAction extends BaseAction {
 	private String newPass;
 	private String reenterPass;
 	private static final Logger LOGGER = LoggerFactory.getLogger(ChangePasswordAction.class);
+	private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
 	public String changePasswordAction() {
 		return SUCCESS;
@@ -25,13 +27,17 @@ public class ChangePasswordAction extends BaseAction {
 	// action change pasword
 	@SuppressWarnings("unchecked")
 	public String updatePassword() {
-		// get form DB
-		User user = userService.findByUsername(getCurrentUser().getUsername());
+
+		// get from DB
+		user = getCurrentUser();
 		if (user == null)
 			return INPUT;
 
+		// check valid form
+		checkValid();
+
 		// set new value fo password
-		user.setPassword(newPass);
+		user.setPassword(passwordEncoder.encode(newPass));
 		if (userService.updateUser(user) == null) {
 			LOGGER.info("Update password fail !!!");
 			return INPUT;
@@ -45,14 +51,14 @@ public class ChangePasswordAction extends BaseAction {
 	}
 
 	// validate
-	public void validate() {
+	public void checkValid() {
 		if (StringUtils.isEmpty(currentPass)) {
 			addFieldError("currentPass", getText("users.password.currentPass.required"));
 		}
 		if (StringUtils.isEmpty(newPass)) {
 			addFieldError("newPass", getText("users.password.newPass.required"));
 		}
-		if (!currentPass.equals(user.getPassword())) {
+		if (user == null || !currentPass.equals(user.getPassword())) {
 			addFieldError("currentPass", getText("users.password.currentPass.required"));
 		}
 		if (StringUtils.isEmpty(reenterPass)) {
