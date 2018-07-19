@@ -12,6 +12,7 @@
 		<intercept-url pattern="/logout" access="isAuthenticated()" />
 
 		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
+		
 
 		<intercept-url pattern="/welcome"
 			access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />
@@ -23,9 +24,9 @@
 			username-parameter="username" password-parameter="password" />
 		<logout logout-url="/logout" logout-success-url="/login"
 			invalidate-session="true" />
+		<csrf disabled="false"/>
 	</http>
-
-
+	
 	<beans:bean id="encoder"
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 	<beans:bean id="customizeRedirectFailedHandler"

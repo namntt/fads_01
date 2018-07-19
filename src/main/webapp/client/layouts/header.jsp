@@ -48,12 +48,13 @@
 					<ul class="dropdown-menu" role="menu">
 						<li>${USER.username}</li>
 						<li><c:url var="logoutUrl" value="/logout" />
-							<form action="${logoutUrl}" id="logout" method="post">
-								<input type="hidden" name="${_csrf.parameterName}"
-									value="${_csrf.token}" />
-							</form> <a href="#"
-							onclick="document.getElementById('logout').submit();"><s:text
+							<form action="${logoutUrl}" id="logout" method="post"></form> <a
+							href="#" onclick="document.getElementById('logout').submit();"><s:text
 									name="users.action.logout" /></a></li>
+						<li><s:url action="viewsChangePass" var="changePassURL"></s:url>
+							<s:a href="%{changePassURL}">
+								<s:text name="users.action.changePass" />
+							</s:a></li>
 					</ul></li>
 			</ul>
 		</div>
