@@ -37,11 +37,13 @@
 	<bean id="userFollowNewsAction" class="com.framgia.action.UserFollowNewsAction" scope="prototype">
 		<property name="userFollowNewsService" ref="userFollowNewsService" />
 		<property name="newsService" ref="newsService" />
+		<property name="userService" ref="userService" />
 	</bean>
 	
 	<bean id="commentAction" class="com.framgia.action.CommentAction" scope="prototype">
 		<property name="commentService" ref="commentService" />
 		<property name="newsService" ref="newsService" />
+		<property name="userService" ref="userService" />
 	</bean>
 	
 </beans>

@@ -29,15 +29,15 @@ public class BaseAction extends ActionSupport implements SessionAware {
 	protected UserFollowNewsService userFollowNewsService;
 	protected CommentService commentService;
 	protected Map<String, Object> sessionAttributes;
-	private User currentUser;
 	private List<File> myFiles;
 	private List<String> myFilesFileName;
 	private List<String> myFilesContentType;
 
-	public void setCurrentUser(User currentUser) {
+	public User getCurrentUser() {
 		try {
-			currentUser = userService.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
+			return userService.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
 		} catch (Exception e) {
+			return null;
 		}
 	}
 
@@ -78,10 +78,6 @@ public class BaseAction extends ActionSupport implements SessionAware {
 
 	public void setMyFiles(List<File> myFiles) {
 		this.myFiles = myFiles;
-	}
-
-	public User getCurrentUser() {
-		return currentUser;
 	}
 
 	public NewsImageService getNewsImageService() {

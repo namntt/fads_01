@@ -123,7 +123,7 @@
 
 		<action name="news-tittle" class="newsAction" method="showTittle">
 			<result name="success" type="json">
-				<param name="excludeProperties">newses,news,id,userFollowNews,keyword</param>
+				<param name="excludeProperties">newses,news,id,userFollowNews,keyword,categories,comments,cities,comment,description,newsId</param>
 			</result>
 		</action>
 
