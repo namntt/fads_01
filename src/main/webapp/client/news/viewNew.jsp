@@ -3,24 +3,28 @@
 <div class="row">
 	<div class="col-md-8">
 		<div class="row">
-			<div class="row">
-				<h2>
+				<p class="tittleNews">
 					<s:property value="news.tittle" />
-				</h2>
-			</div>
+				</p>
+		</div>
+		
+		<div class="row priceNews">
+			<s:property value="news.price" />$
 		</div>
 
 		<div class="row">
-			<s:property value="news.content" />
+			<div class="col-md-8 content">
+				<s:property value="news.content" />
+			</div>
 		</div>
 	</div>
-	<div class="col-md-2">
+	<%-- <div class="col-md-2">
 		<div class="row" style="text-align: center">
 			<s:property value="news.price" />
 		</div>
-	</div>
+	</div> --%>
 
-	<div class="col-md-2">
+	<div class="col-md-4">
 		<s:form id="search-form" action="" method="GET">
 			<s:textfield name="id" type="hidden" id="newsId"></s:textfield>
 		</s:form>
@@ -43,18 +47,8 @@
 				sẻ</a>
 		</div>
 	</div>
-	<div class="row">
-		<h2>
-			<s:property value="news.tittle" />
-		</h2>
-	</div>
-	<div class="row">
-		<s:property value="news.content" />
-	</div>
-	<div class="row">
-		<s:property value="news.price" />
-	</div>
 </div>
+
 <div class="row">
 	<div class="col-md-6">
 		<s:form id="formComment">

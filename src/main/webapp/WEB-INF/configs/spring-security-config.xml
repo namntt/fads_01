@@ -12,21 +12,21 @@
 		<intercept-url pattern="/logout" access="isAuthenticated()" />
 
 		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
-		
 
+		<intercept-url pattern="/assets/**" access="permitAll" />
 		<intercept-url pattern="/welcome"
 			access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />
 
-		<access-denied-handler error-page="/accessDenied"/>
+		<access-denied-handler error-page="/accessDenied" />
 
 		<form-login login-page="/login" default-target-url="/welcome"
 			authentication-failure-handler-ref="customizeRedirectFailedHandler"
 			username-parameter="username" password-parameter="password" />
 		<logout logout-url="/logout" logout-success-url="/login"
 			invalidate-session="true" />
-		<csrf disabled="false"/>
+		<csrf disabled="false" />
 	</http>
-	
+
 	<beans:bean id="encoder"
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 	<beans:bean id="customizeRedirectFailedHandler"

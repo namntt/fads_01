@@ -1,12 +1,14 @@
-.categories{
+.categoryName{
 	cursor: pointer;
-	background: #d6c671;
-	margin:10px;
-	opacity: 0.5;
-	padding:30px;
 	text-align: center;
 }
-.categories a{
+.categoryName a{
+	color: black;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.rankingNew a{
 	color: black;
 	font-weight: bold;
 	text-decoration: none;

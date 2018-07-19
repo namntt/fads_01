@@ -14,33 +14,29 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#"> Good Market </a>
+			<a class="navbar-brand" href="#">Team Java Framgia</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1">
-			<form class="navbar-form navbar-left" method="GET" role="search">
-				<div class="form-group">
-					<input type="text" name="searchKeyword" class="form-control"
-						placeholder="Search">
-
-
-				</div>
-				<button type="submit" class="btn btn-default">
-					<i class="glyphicon glyphicon-search"></i>
-				</button>
-
-			</form>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
-				<li><s:a action="favorite-index">
+				<li>
+					<s:a action="home"><s:text name="client.menu.home" /></s:a>
+				</li>
+				<li>
+					<s:a action="homepage"><s:text name="client.menu.category" /></s:a>
+				</li>
+				<li>
+					<s:a action="favorite-index">
 						<s:text name="client.action.favorite" />
-					</s:a></li>
-				<li><s:a class="btn-info" action="postnews">
+					</s:a>
+				</li>
+				<li>
+					<s:a action="postnews">
 						<s:text name="news.action.post" />
-					</s:a></li>
-				<li><a href="http://www.pingpong-labs.com" target="_blank">Visit
-						Site</a></li>
+						<span><i class="glyphicon glyphicon-pencil"></i></span>
+					</s:a>
+				</li>
 				<li class="dropdown "><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-expanded="false">
 						Account <span class="caret"></span>

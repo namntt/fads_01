@@ -75,18 +75,23 @@
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" default="true" />
 		</result-types>
-		
+
 		<action name="viewsChangePass">
 			<result>changePass</result>
 		</action>
-		
+
 		<action name="updatePassword" class="changePassAction" method="updatePassword">
 			<result name="success" type="redirect">/logout.action</result>
 			<result name="input">changePass</result>
 		</action>
-		
-		<action name="homepage" class="categoryAction" method="index">
+
+		<action name="home" class="categoryAction" method="index">
 			<result name="success">home</result>
+			<result name="error">/errors/404.jsp</result>
+		</action>
+
+		<action name="homepage" class="categoryAction" method="index">
+			<result name="success">categories</result>
 			<result name="error">/errors/404.jsp</result>
 		</action>
 
