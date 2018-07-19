@@ -23,8 +23,8 @@
 			authentication-failure-handler-ref="customizeRedirectFailedHandler"
 			username-parameter="username" password-parameter="password" />
 		<logout logout-url="/logout" logout-success-url="/login"
-			invalidate-session="true" />
-		<csrf disabled="false" />
+			delete-cookies="JSESSIONID" invalidate-session="true"/>
+		<csrf disabled="false"/>
 	</http>
 
 	<beans:bean id="encoder"
