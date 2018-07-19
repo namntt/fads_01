@@ -8,21 +8,41 @@
 		url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular')
 		format('svg');
 }
-.title{
+
+.title {
 	font-weight: bold;
 	font-size: 20px;
 }
-.title a{
+
+.title a {
 	text-decoration: none;
 	color: black;
 }
-.name{
+
+.name {
 	font-weight: bold;
 	font-size: 30px;
 }
-.time{
-	color:gray;
+
+.time {
+	color: gray;
 }
-.price{
+
+.price {
+	color: red;
+}
+
+.tittleNews {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.content {
+	font-family: Times New Roman;
+	font-size: 20px;
+}
+
+.priceNews {
+	font-size: 20px;
 	color: red;
 }

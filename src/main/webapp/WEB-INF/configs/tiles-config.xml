@@ -34,6 +34,8 @@
 			<add-attribute value="/assets/css/follow.css" />
 			<add-attribute value="/assets/css/categories.css" />
 			<add-attribute value="/assets/css/jquery-ui.css" />
+			<add-attribute value="/assets/css/home.css" />
+			<add-attribute value="/assets/css/viewNews.css" />
 		</put-list-attribute>
 		<put-list-attribute name="jsAdd">
 			<add-attribute value="/assets/js/follow.js" />
@@ -133,8 +135,12 @@
 			<add-attribute value="/assets/js/custom.js" />
 		</put-list-attribute>
 	</definition>
-
+	
 	<definition name="home" extends="client-base.definition">
+		<put-attribute name="body" value="/client/home.jsp" />
+	</definition>
+
+	<definition name="categories" extends="client-base.definition">
 		<put-attribute name="body" value="/client/category/listCategory.jsp" />
 		<put-list-attribute name="cssDefault">
 			<add-attribute value="/assets/css/bootstrap.min.css" />
