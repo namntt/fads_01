@@ -18,6 +18,7 @@ public class CategoryAction extends BaseAction {
 	private List<City> cities;
 	private String keyword;
 	private String choiceAdress;
+	private String choicePrice;
 	private List<Integer> newsIds;
 	private List<News> newses;
 
@@ -36,7 +37,7 @@ public class CategoryAction extends BaseAction {
 		cityNames = new ArrayList<String>();
 		cities.forEach(city -> cityNames.add(city.getName()));
 		if (getChoiceAdress() != null) {
-			searchNew.getFieldsSearch().getCity().setId(cityService.findByName(getChoiceAdress()).getId());
+			searchNew.getFieldsSearch().setCity(cityService.findByName(getChoiceAdress()));
 		}
 		newses = newsService.findNewsByCategoryId(id, 1, searchNew);
 		for (int i = 0; i < newses.size(); i++) {
@@ -115,6 +116,14 @@ public class CategoryAction extends BaseAction {
 
 	public void setNewses(List<News> newses) {
 		this.newses = newses;
+	}
+
+	public String getChoicePrice() {
+		return choicePrice;
+	}
+
+	public void setChoicePrice(String choicePrice) {
+		this.choicePrice = choicePrice;
 	}
 
 }

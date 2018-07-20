@@ -2,9 +2,7 @@ package com.framgia.action;
 
 import java.io.File;
 import java.util.List;
-import java.util.Map;
 
-import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.framgia.model.User;
@@ -19,7 +17,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import common.UserCustomFile;
 
-public class BaseAction extends ActionSupport implements SessionAware {
+public class BaseAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	protected CategoryService categoryService;
 	protected NewsService newsService;
@@ -28,7 +26,6 @@ public class BaseAction extends ActionSupport implements SessionAware {
 	protected NewsImageService newsImageService;
 	protected UserFollowNewsService userFollowNewsService;
 	protected CommentService commentService;
-	protected Map<String, Object> sessionAttributes;
 	private List<File> myFiles;
 	private List<String> myFilesFileName;
 	private List<String> myFilesContentType;
@@ -108,20 +105,8 @@ public class BaseAction extends ActionSupport implements SessionAware {
 		this.userFollowNewsService = userFollowNewsService;
 	}
 
-	public Map<String, Object> getSessionAttributes() {
-		return sessionAttributes;
-	}
-
-	public void setSessionAttributes(Map<String, Object> sessionAttributes) {
-		this.sessionAttributes = sessionAttributes;
-	}
-
 	public void setCommentService(CommentService commentService) {
 		this.commentService = commentService;
 	}
 
-	@Override
-	public void setSession(Map<String, Object> session) {
-		this.sessionAttributes = session;
-	}
 }

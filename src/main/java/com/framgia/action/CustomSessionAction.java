@@ -11,17 +11,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class CustomSessionAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
-
 	public enum Role {
 		ROLE_ADMIN, ROLE_USER
 	}
 
 	public String execute() {
-
 		try {
 			UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication()
 					.getPrincipal();
-
 			List<String> roles = new ArrayList<String>();
 
 			Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>) userDetails

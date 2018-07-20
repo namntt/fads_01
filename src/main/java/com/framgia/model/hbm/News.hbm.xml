@@ -19,7 +19,7 @@
 			<column length="100" name="tittle" />
 		</property>
 		<property name="content" type="string">
-			<column length="250" name="content" />
+			<column length="1000" name="content" />
 		</property>
 		<property name="phoneNumber" type="string">
 			<column length="45" name="phone_number" />

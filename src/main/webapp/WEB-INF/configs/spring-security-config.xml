@@ -16,7 +16,6 @@
 		<intercept-url pattern="/assets/**" access="permitAll" />
 		<intercept-url pattern="/welcome"
 			access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />
-
 		<access-denied-handler error-page="/accessDenied" />
 
 		<form-login login-page="/login" default-target-url="/welcome"
